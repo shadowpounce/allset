@@ -17,14 +17,29 @@ h6 {
 
 big {
   font-size: get-d(154px);
+
+  @media (max-width: 561px) {
+    font-size: get(48px);
+    line-height: get(49px);
+    letter-spacing: 0.07em;
+  }
 }
 
 h1 {
   font-size: get-d(80px);
+
+  @media (max-width: 561px) {
+    font-size: get(36px);
+  }
 }
 
 h2 {
   font-size: get-d(64px);
+
+  @media (max-width: 561px) {
+    font-size: get(36px);
+    line-height: get(36px);
+  }
 }
 
 h3 {
@@ -34,41 +49,84 @@ h3 {
 h4 {
   font-size: get-d(32px);
   line-height: get-d(36px);
+
+  @media (max-width: 561px) {
+    font-size: get(32px);
+    line-height: get(36px); 
+  }
 }
 
 h5 {
   font-size: get-d(36px);
   line-height: get-d(37px);
+
+  @media (max-width: 561px) {
+    font-size: get(30px);
+    line-height: get(32.5px);
+  }
 }
 
 p {
   font-size: get-d(16px);
   line-height: get-d(20px);
 
+  @media (max-width: 561px) {
+    font-size: get(14px);
+    line-height: get(18px);
+  }
+
   &.txt {
     font-size: get-d(18px);
     line-height: get-d(24px);
+
+    @media (max-width: 561px) {
+      font-size: get(16px);
+      line-height: get(22px);
+    }
   }
 
   &.txt-24 {
     font-size: get-d(24px);
     line-height: 100%;
+
+    @media (max-width: 561px) {
+      font-size: get(22px);
+    }
   }
 
   &.txt-20 {
     font-size: get-d(20px);
     line-height: get-d(24px);
+
+    @media (max-width: 561px) {
+      font-size: get(18px);
+      line-height: get(22px);
+    }
   }
 
   &.txt-14 {
     font-size: get-d(14px);
     line-height: get-d(12px);
+
+    @media (max-width: 561px) {
+      font-size: get(12px);
+      line-height: get(12px);
+    }
   }
 
   &.txt-12 {
     font-size: get-d(12px);
     line-height: get-d(12px);
+
+    @media (max-width: 561px) {
+      font-size: get(10px);
+      line-height: get(12px);
+    }
   }
+}
+
+a, button {
+  cursor: pointer;
 }
 
 .c-primary {

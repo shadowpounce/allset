@@ -6,15 +6,37 @@
 
     margin: 0 auto;
 
+    @media (max-width: 561px) {
+      font-size: get(24.5px);
+      line-height: get(23px);
+    }
+
+    br {
+      @media (max-width: 561px) {
+        display: none;
+      }
+    }
+
     span {
       margin: auto get-d(10px);
       translate: -5% 15%;
+
+      @media (max-width: 561px) {
+        translate: -5% 15% !important;
+      }
 
       img {
         width: get-d(41px);
         height: get-d(41px);
         min-height: get-d(41px);
         min-width: get-d(41px);
+
+        @media (max-width: 561px) {
+          width: get(16px);
+          height: get(16px);
+          min-width: get(16px);
+          min-height: get(16px);
+        }
       }
     }
   }
@@ -30,6 +52,12 @@
     display: flex;
     gap: get-d(20px);
     flex-wrap: wrap;
+
+    @media (max-width: 561px) {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: stretch;
+    }
   }
 
   &Card {
@@ -45,6 +73,11 @@
 
     min-height: get-d(635px);
     position: relative;
+
+    @media (max-width: 561px) {
+      padding: get(15px);
+      border-radius: get(13.2px);
+    }
 
     > div:first-child {
       z-index: 1;
@@ -71,6 +104,19 @@
       rotate: -45deg;
       transform-origin: center;
 
+      @media (max-width: 561px) {
+        width: get(120px);
+        height: get(32px);
+        left: 0 !important;
+        translate: 0 !important;
+        top: get(65px) !important;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
       svg {
         rotate: 4.39deg;
       }
@@ -82,6 +128,19 @@
       left: 55% !important;
       translate: -50% 0 !important;
       transform-origin: center;
+
+      @media (max-width: 561px) {
+        width: get(103px);
+        height: get(21px);
+        left: get(20px) !important;
+        top: get(12.5px) !important;
+        translate: 0 !important;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
 
       svg {
         rotate: 11.88deg;
@@ -103,6 +162,11 @@
     div[id='acard-2'] {
       left: 60%;
       top: 52.5%;
+
+      @media (max-width: 561px) {
+        top: 49%;
+        left: 65%;
+      }
     }
 
     div[id='acard-4'] {
@@ -124,14 +188,30 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+
+      @media (max-width: 561px) {
+        background-image: url('../../../public/assets/images/bc1-mob.png');
+        background-position: top center;
+        min-height: get(565px) !important;
+        height: get(565px) !important;
+      }
     }
 
     &:nth-child(2) {
       background-color: #d9dcfa5c;
+
+      @media (max-width: 561px) {
+        min-height: get(505px);
+      }
     }
 
     &:nth-child(3) {
       background-color: #fff;
+
+      @media (max-width: 561px) {
+        min-height: get(500px);
+        height: get(500px);
+      }
     }
 
     &.big {
@@ -140,13 +220,29 @@
       min-width: 100%;
       min-height: get-d(440px);
 
+      @media (max-width: 561px) {
+        justify-content: end;
+        gap: get(24px);
+      }
+
       .text {
         h3 {
           max-width: get-d(495px);
+
+          @media (max-width: 561px) {
+            max-width: 100%;
+            font-size: get(36px);
+            line-height: get(36px);
+          }
         }
 
         p {
           max-width: get-d(424px);
+
+          @media (max-width: 561px) {
+            width: 100%;
+            max-width: 100%;
+          }
         }
       }
     }
@@ -159,16 +255,37 @@
       z-index: 1;
       position: relative;
 
+      @media (max-width: 561px) {
+        gap: get(24px);
+        width: 100%;
+      }
+
+      h5 {
+        @media (max-width: 561px) {
+          font-size: get(36px);
+          line-height: get(36px);
+        }
+      }
+
       h3,
       h5 {
         max-width: get-d(300px);
         width: 100%;
+
+        @media (max-width: 561px) {
+          max-width: 100% !important;
+        }
       }
 
       p {
         width: 100%;
 
         max-width: get-d(415px);
+
+        @media (max-width: 561px) {
+          width: 100% !important;
+          max-width: 100%;
+        }
       }
     }
   }

@@ -13,8 +13,16 @@
     width: 100%;
     margin: 0 auto;
 
+    @media (max-width: 561px) {
+      max-width: 100%;
+    }
+
     p {
       max-width: get-d(475px);
+
+      @media (max-width: 561px) {
+        max-width: 100%;
+      }
     }
   }
 
@@ -22,6 +30,10 @@
     display: flex;
     gap: get-d(40px);
     align-items: center;
+
+    @media (max-width: 561px) {
+      flex-direction: column-reverse;
+    }
 
     .chart {
       padding: get-d(36px);
@@ -33,6 +45,13 @@
       align-items: stretch;
       gap: get-d(40px);
 
+      @media (max-width: 561px) {
+        width: 100%;
+        border-radius: get(10px);
+        gap: get(25px);
+        padding: get(12px);
+      }
+
       .canvas {
         width: 100% !important;
 
@@ -40,7 +59,6 @@
 
         canvas {
           width: 100% !important;
-          height: auto !important;
         }
       }
 
@@ -49,11 +67,25 @@
         justify-content: space-between;
         gap: get-d(45px);
 
+        @media (max-width: 561px) {
+          gap: get(22px);
+        }
+
         .potentialBalance {
           display: flex;
           flex-direction: column;
           align-items: start;
           gap: get-d(22.6px);
+
+          @media (max-width: 561px) {
+            gap: get(11px);
+          }
+
+          > *:nth-child(2) {
+            @media (max-width: 561px) {
+              font-size: get(10px);
+            }
+          }
 
           h2 {
             color: $navy07;
@@ -71,6 +103,14 @@
 
           max-width: get-d(220px);
 
+          @media (max-width: 561px) {
+            max-width: get(118px);
+            min-width: get(118px);
+            width: 100%;
+            gap: get(0px);
+            padding: get(8px) get(4px) get(5px) get(8px);
+          }
+
           &::before {
             content: '';
             position: absolute;
@@ -83,6 +123,11 @@
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
+
+            @media (max-width: 561px) {
+              width: get(11.75px);
+              height: get(11.75px);
+            }
           }
 
           .text {
@@ -91,13 +136,27 @@
             align-items: start;
             gap: get-d(12px);
 
+            @media (max-width: 561px) {
+              gap: get(6px);
+              margin-bottom: auto;
+            }
+
             p:first-child {
               color: $navy07;
+
+              @media (max-width: 561px) {
+                font-size: get(10px);
+                line-height: 100%;
+              }
             }
 
             p:last-child {
               opacity: 0.5;
               line-height: 140%;
+
+              @media (max-width: 561px) {
+                font-size: get(8px);
+              }
             }
           }
         }
@@ -108,6 +167,10 @@
         align-items: center;
         gap: get-d(9px);
 
+        @media (max-width: 561px) {
+          gap: get(4.4px);
+        }
+
         .item {
           display: flex;
           align-items: center;
@@ -115,6 +178,12 @@
           padding: get-d(12px);
           border-radius: get-d(12px);
           background-color: $whitef7;
+
+          @media (max-width: 561px) {
+            padding: get(6px);
+            border-radius: get(6px);
+            gap: get(4px);
+          }
 
           &:first-child {
             .square {
@@ -138,6 +207,14 @@
             height: get-d(12px);
             min-height: get-d(12px);
             border-radius: get-d(3px);
+
+            @media (max-width: 561px) {
+              width: get(7px);
+              min-width: get(7px);
+              height: get(7px);
+              min-height: get(7px);
+              border-radius: get(1.5px);
+            }
           }
         }
       }
@@ -151,6 +228,11 @@
       min-width: get-d(340px);
       max-width: get-d(340px);
       width: 100%;
+
+      @media (max-width: 561px) {
+        max-width: 100%;
+        min-width: 100%;
+      }
 
       .inputs {
         display: flex;
@@ -177,6 +259,10 @@
         align-items: stretch;
 
         gap: get-d(10px);
+
+        @media (max-width: 561px) {
+          gap: get(12px);
+        }
 
         button:first-child {
           flex-direction: row-reverse;

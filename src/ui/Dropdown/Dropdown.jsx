@@ -29,7 +29,9 @@ export const Dropdown = ({ title, content }) => {
   }, [active, h])
 
   return (
-    <div className={clsx(styles.dropdown, 'reveal scale')}>
+    <div
+      className={clsx(styles.dropdown, active && styles.active, 'reveal scale')}
+    >
       <div
         onClick={() => (active ? setActive(false) : setActive(true))}
         className={styles.head}

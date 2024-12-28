@@ -9,6 +9,13 @@
 
   width: 100%;
 
+  @media (max-width: 561px) {
+    min-height: get(45.5px);
+    height: get(45.5px);
+    padding: get(12px) get(14px);
+    border-radius: get(8px);
+  }
+
   &.msg {
     min-height: get-d(132px);
     height: fit-content;
@@ -17,11 +24,28 @@
   &.secondary {
     background-color: #fff;
 
+    @media (max-width: 561px) {
+      min-height: get(56px);
+      height: get(56px);
+      padding: get(16px);
+      border-radius: get(8px);
+    }
+
     input {
       color: $navy07;
 
+      @media (max-width: 561px) {
+        font-size: get(20px);
+        line-height: get(24px);
+      }
+
       &::placeholder {
         color: $navy07;
+
+        @media (max-width: 561px) {
+          font-size: get(20px);
+          line-height: get(24px);
+        }
       }
     }
   }
@@ -38,11 +62,21 @@
     appearance: none;
     -webkit-appearance: none;
 
+    @media (max-width: 561px) {
+      font-size: get(14px);
+      line-height: get(20px);
+    }
+
     &::placeholder {
       color: $grey47;
       font-size: get-d(16px);
       line-height: get-d(24px);
       letter-spacing: -0.06em;
+
+      @media (max-width: 561px) {
+        font-size: get(14px);
+        line-height: get(20px);
+      }
     }
   }
 }

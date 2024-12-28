@@ -4,6 +4,13 @@
   min-width: get-d(28px);
   min-height: get-d(28px);
 
+  @media (max-width: 561px) {
+    width: get(20px);
+    height: get(20px);
+    min-width: get(20px);
+    min-height: get(20px);
+  }
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,5 +22,12 @@
     height: get-d(14px);
     min-width: get-d(14px);
     min-height: get-d(14px);
+
+    @media (max-width: 561px) {
+      width: get(10px);
+      height: get(10px);
+      min-width: get(10px);
+      min-height: get(10px);
+    }
   }
 }

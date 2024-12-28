@@ -23,7 +23,7 @@ export const Hero = () => {
   }, [load, lottie])
 
   return (
-    <section className={styles.hero}>
+    <section id="home" className={styles.hero}>
       <div className={clsx(styles.heroBg, '')}>
         <img src="assets/images/grid.png" alt="" />
       </div>

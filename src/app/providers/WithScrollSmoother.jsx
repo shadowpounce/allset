@@ -95,8 +95,8 @@ export const WithScrollSmoother = ({ children }) => {
           split.words.map((word, idx) => {
             word.classList.add('reveal', 'word')
             word.dataset.delay = `${idx * (sItem.dataset.delayKef ?? 0.05)}`
-            word.dataset.ease = 'ease'
             word.dataset.trigger = '.split-text'
+            word.dataset.start = `${sItem.dataset.start ?? `top top+=87.5%`}`
           })
         })
       }
@@ -123,7 +123,7 @@ export const WithScrollSmoother = ({ children }) => {
                 x: 0,
                 z: 0,
                 duration: item.dataset.duration ? item.dataset.duration : 3,
-                ease: 'elastic.out(1,0.3)',
+                ease: item.dataset.ease ? 'ease' : 'elastic.out(1,0.3)',
                 delay: item.dataset.delay ? Number(item.dataset.delay) : 0,
               }),
           })
@@ -137,13 +137,11 @@ export const WithScrollSmoother = ({ children }) => {
   }, 1000)
 
   useEffect(() => {
-    if (ScrollSmoother && window.innerWidth > 768) {
-      ScrollSmoother.create({
-        wrapper: '#smooth-wrapper',
-        content: '#smooth-content',
-        smooth: window.innerWidth > 768 ? 1.15 : 0.1,
-      })
-    }
+    ScrollSmoother.create({
+      wrapper: '#smooth-wrapper',
+      content: '#smooth-content',
+      smooth: 0.5,
+    })
   }, [])
 
   return (

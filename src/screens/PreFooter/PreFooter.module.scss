@@ -6,6 +6,15 @@
 
   h2 {
     max-width: get-d(700px);
+
+    @media (max-width: 561px) {
+      width: 100%;
+      max-width: 100%;
+
+      br {
+        display: none;
+      }
+    }
   }
 
   .btnSpeak {
@@ -13,12 +22,31 @@
   }
 
   &Row {
-
     display: flex;
     align-items: center;
     justify-content: center;
     gap: get-d(20px);
     padding-inline: get-d(20px);
+
+    @media (max-width: 561px) {
+      gap: get(8.36px);
+      overflow-x: scroll;
+      padding-block: get(35px);
+      justify-content: start;
+      overflow-y: visible;
+      padding-inline: get(16px);
+
+      &::-webkit-scrollbar {
+        background-color: #ecedf9;
+        height: get(4.5px);
+        width: get(175px);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #6f7af6;
+        border-radius: get(145px);
+      }
+    }
 
     div[id='pc1'] {
       > div:not(:last-child) {
@@ -30,12 +58,23 @@
           top: 5% !important;
           left: 45% !important;
           min-width: get-d(252px);
+
+          @media (max-width: 561px) {
+            width: 100%;
+          }
         }
 
         &:nth-child(2) {
           top: 25% !important;
           left: 25% !important;
           rotate: 7deg !important;
+
+          @media (max-width: 561px) {
+            > div {
+              padding: get(4px) get(16px) !important;
+              padding-left: get(4px) !important;
+            }
+          }
 
           > div {
             background-color: $pinkd9;
@@ -70,6 +109,14 @@
       height: get-d(290px);
 
       transition: translate 0.7s ease;
+
+      @media (max-width: 561px) {
+        min-height: get(200px);
+        height: get(200px);
+        min-width: get(150px);
+        width: get(150px);
+        max-width: get(150px);
+      }
 
       &:hover {
         translate: 0 -10%;
@@ -166,6 +213,11 @@
       justify-content: start;
       position: relative;
 
+      @media (max-width: 561px) {
+        border-radius: get(10.45px);
+        padding: get(10.1px) get(11.5px);
+      }
+
       &.justPhoto {
         padding: 0;
 
@@ -188,8 +240,24 @@
         align-items: start;
         gap: get-d(17px);
 
+        @media (max-width: 561px) {
+          gap: get(8.6px);
+        }
+
         p:first-child {
           opacity: 0.5;
+
+          @media (max-width: 561px) {
+            font-size: get(10px);
+            line-height: get(7px);
+          }
+        }
+
+        p:last-child {
+          @media (max-width: 561px) {
+            font-size: get(14px);
+            line-height: 100%;
+          }
         }
       }
     }

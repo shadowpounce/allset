@@ -37,6 +37,12 @@ $mobile_big: 565px;
 $mobile: 465px;
 $mobile_small: 376px;
 
+@function get($target) {
+  $vw-context: calc((393 * 0.01) * 1px);
+  @return calc(($target / $vw-context) * 1vw);
+}
+
+
 @function get-d($target) {
   $vw-context: calc((1512 * 0.01) * 1px);
   @return calc(($target / $vw-context) * 1vw);

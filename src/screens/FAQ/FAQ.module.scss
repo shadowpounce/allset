@@ -11,6 +11,11 @@
   &Title {
     max-width: get-d(450px);
     width: 100%;
+
+    @media (max-width: 561px) {
+      max-width: 100%;
+      text-align: center;
+    }
   }
 
   &Items {

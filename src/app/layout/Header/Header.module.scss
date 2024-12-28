@@ -10,9 +10,73 @@
   align-items: center;
   justify-content: space-between;
 
+  z-index: 111;
+
+  &.active {
+    backdrop-filter: blur(0px);
+    background-color: #f7f7f9;
+  }
+
+  div[class*='switch'] {
+    @media (max-width: 561px) {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 561px) {
+    max-width: 100%;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    padding: get(12px);
+
+    transition: 0.35s ease;
+    transition-property: background-color, backdrop-filter;
+  }
+
   &Logo {
     width: get-d(48px);
     height: get-d(18px);
+
+    @media (max-width: 561px) {
+      width: get(48px);
+      height: get(18px);
+    }
+  }
+
+  .burger {
+    width: get(44px);
+    height: get(44px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fff;
+    border-radius: 50%;
+
+    &.active {
+      svg {
+        path {
+          &:nth-child(1) {
+            translate: 0 30%;
+          }
+
+          &:nth-child(3) {
+            translate: 0 -30%;
+          }
+        }
+      }
+    }
+
+    svg {
+      width: get(24px);
+      height: get(24px);
+
+      path {
+        transform-origin: center;
+        transition: all 0.35s ease;
+      }
+    }
   }
 
   .menu {
@@ -25,48 +89,28 @@
     left: 50%;
     translate: -50% -50%;
 
+    padding: get-d(12px);
+    border-radius: get-d(8px);
+    background-color: rgba(255, 255, 255, 0.85);
+
+    @media (max-width: 561px) {
+      display: none;
+    }
+
     &Item {
       color: $grey4b;
       text-transform: capitalize;
     }
   }
 
+  &MobileGroup {
+    display: flex;
+    gap: get(10px);
+  }
+
   .logoGroup {
     display: flex;
     align-items: center;
     gap: get-d(47px);
-
-    .switch {
-      background-color: $pinkf0;
-
-      display: flex;
-      align-items: stretch;
-      padding: get-d(6px);
-      border-radius: get-d(20px);
-
-      min-height: get-d(50px);
-      height: get-d(50px);
-
-      &Item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        padding-inline: get-d(14px);
-        border-radius: get-d(32px);
-
-        color: $grey4b;
-
-        transition: 0.4s ease;
-        transition-property: background-color, color;
-
-        min-width: get-d(125px);
-
-        &.active {
-          background-color: $navy07;
-          color: #fff;
-        }
-      }
-    }
   }
 }

@@ -23,7 +23,7 @@ export const Benefits = () => {
   }, [videoRef])
 
   return (
-    <section className={styles.benefits}>
+    <section id="benefits" className={styles.benefits}>
       <div className={clsx('container', styles.benefitsContainer)}>
         <h2 className={clsx(styles.benefitsTitle, 'split-text')}>
           Create your fund and start <br /> investing{' '}

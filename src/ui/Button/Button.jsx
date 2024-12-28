@@ -9,6 +9,7 @@ export const Button = ({
   iconBg = false,
   className,
   onClick,
+  animated = false,
 }) => {
   return (
     <GsapMagnetic>
@@ -19,7 +20,8 @@ export const Button = ({
           styles[type],
           icon && styles.withIcon,
           iconBg && styles.whiteIcon,
-          className && className
+          className && className,
+          animated && 'reveal scale'
         )}
       >
         {children && children}

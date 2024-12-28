@@ -1,4 +1,15 @@
 .say {
+  @media (max-width: 561px) {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    padding-bottom: get(80px);
+
+    &::-webkit-scrollbar {
+      appearance: none !important;
+      -webkit-appearance: none !important;
+    }
+  }
+
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -6,10 +17,20 @@
     justify-content: center;
     gap: get-d(67.5px);
 
+    @media (max-width: 561px) {
+      margin-bottom: get(60px);
+    }
+
     big {
       letter-spacing: -0.07em;
       color: $navy0a;
       text-align: center;
+
+      br {
+        @media (max-width: 561px) {
+          display: none;
+        }
+      }
     }
   }
 
@@ -20,9 +41,21 @@
     position: relative;
     margin: 0 auto;
 
+    @media (max-width: 561px) {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      max-width: 100%;
+      mix-blend-mode: darken;
+    }
+
     > div {
       width: 100%;
       height: 100%;
+
+      @media (max-width: 561px) {
+        scale: 1.65;
+        translate: 5% 25%;
+      }
 
       g[id='3351'] {
         image {
@@ -39,6 +72,14 @@
       height: 100%;
 
       translate: -50% -50%;
+
+      pointer-events: none;
+      user-select: none;
+
+      @media (max-width: 561px) {
+        scale: 1.45;
+        top: 50%;
+      }
     }
 
     .phone {

@@ -5,11 +5,21 @@
     display: flex;
     align-items: stretch;
     gap: get-d(20px);
+
+    @media (max-width: 561px) {
+      flex-direction: column-reverse;
+      gap: get(24px);
+    }
   }
 
   &Logo {
     width: get-d(122px);
     height: get-d(45px);
+
+    @media (max-width: 561px) {
+      width: get(122px);
+      height: get(44.6px);
+    }
   }
 
   &Block {
@@ -21,16 +31,39 @@
     flex: 1;
     justify-content: space-between;
 
+    @media (max-width: 561px) {
+      padding: get(32px);
+      border-radius: get(20px);
+      aspect-ratio: 1 / 1;
+
+      .for {
+        @media (max-width: 561px) {
+          font-size: get(14px);
+          line-height: 100%;
+          text-transform: capitalize;
+        }
+      }
+    }
+
     ul {
       display: flex;
       flex-direction: column;
       align-items: start;
       gap: get-d(16px);
 
+      @media (max-width: 561px) {
+        gap: get(16px);
+      }
+
       li {
         text-transform: capitalize;
         font-size: get-d(32px);
         line-height: 100%;
+
+        @media (max-width: 561px) {
+          font-size: get(32px);
+          line-height: get(31px);
+        }
       }
     }
 
@@ -44,6 +77,10 @@
 
       button {
         max-width: get-d(175px) !important;
+
+        @media (max-width: 561px) {
+          max-width: get(175px) !important;
+        }
       }
 
       > div {
@@ -51,6 +88,10 @@
         flex-direction: column;
         align-items: start;
         gap: get-d(28px);
+
+        @media (max-width: 561px) {
+          gap: get(28px);
+        }
 
         > *:not(button) {
           color: #fff;
@@ -63,20 +104,40 @@
       background-color: $pinkf0;
       justify-content: space-between;
 
+      @media (max-width: 561px) {
+        justify-content: start;
+        gap: get(30px);
+      }
+
       .bottom {
         color: $grey47;
         opacity: 0.5;
+
+        @media (max-width: 561px) {
+          margin-top: auto;
+        }
 
         ul {
           display: flex;
           flex-direction: column;
           align-items: start;
           gap: get-d(1px);
+
+          @media (max-width: 561px) {
+            gap: get(4px);
+          }
         }
       }
 
       p {
         max-width: get-d(240px);
+        color: $navy07;
+
+        @media (max-width: 561px) {
+          max-width: get(240px) !important;
+          font-size: get(18px);
+          line-height: get(24px);
+        }
       }
     }
   }

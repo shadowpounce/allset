@@ -2,5 +2,10 @@
   &Logo {
     width: get-d(48px);
     height: get-d(17.6px);
+
+    @media (max-width: 561px) {
+      width: get(72px);
+      height: get(32px);
+    }
   }
 }

@@ -11,6 +11,13 @@
   border-radius: get-d(24px);
   cursor: pointer;
 
+  @media (max-width: 561px) {
+    font-size: get(16px);
+    height: get(44px);
+    min-height: get(44px);
+    border-radius: get(24px);
+  }
+
   &.withIcon {
     padding-inline: get-d(20px) get-d(10px);
   }
@@ -37,11 +44,25 @@
     border-radius: get-d(8px);
     padding: 0;
 
+    @media (max-width: 561px) {
+      width: get(50px);
+      min-width: get(50px);
+      height: get(50px);
+      min-height: get(50px);
+    }
+
     .icon {
       width: get-d(31px);
       height: get-d(31px);
       min-width: get-d(31px);
       min-height: get-d(31px);
+
+      @media (max-width: 561px) {
+        width: get(31px);
+        min-width: get(31px);
+        height: get(31px);
+        min-height: get(31px);
+      }
 
       img {
         width: 100%;
@@ -56,11 +77,23 @@
     color: $navy07;
     padding-inline: get-d(20px);
 
+    @media (max-width: 561px) {
+      padding-inline: get(20px);
+      gap: get(10px);
+    }
+
     .icon {
       width: get-d(16px);
       min-width: get-d(16px);
       height: get-d(16px);
       min-height: get-d(16px);
+
+      @media (max-width: 561px) {
+        width: get(24px);
+        min-width: get(24px);
+        height: get(24px);
+        min-height: get(24px);
+      }
 
       img {
         width: 100%;
@@ -75,6 +108,11 @@
     background-color: #fff !important;
     color: $navy07 !important;
 
+    @media (max-width: 561px) {
+      gap: get(10px);
+    }
+
+
     .icon {
       width: get-d(28px);
       min-width: get-d(28px);
@@ -83,11 +121,25 @@
       border-radius: 50%;
       min-height: get-d(28px);
 
+      @media (max-width: 561px) {
+        width: get(28px);
+        min-width: get(28px);
+        height: get(28px);
+        min-height: get(28px);
+      }
+
       img {
         width: get-d(14px);
         min-width: get-d(14px);
         height: get-d(14px);
         min-height: get-d(14px);
+
+        @media (max-width: 561px) {
+          width: get(14px);
+          min-width: get(14px);
+          height: get(14px);
+          min-height: get(14px);
+        }
       }
     }
   }
@@ -109,6 +161,13 @@
       height: get-d(20px);
       min-width: get-d(20px);
       min-height: get-d(20px);
+
+      @media (max-width: 561px) {
+        width: get(20px);
+        min-width: get(20px);
+        height: get(20px);
+        min-height: get(20px);
+      }
     }
   }
 
@@ -128,11 +187,25 @@
     justify-content: center;
     padding: 0;
 
+    @media (max-width: 561px) {
+      width: get(28px);
+      min-width: get(28px);
+      height: get(28px);
+      min-height: get(28px);
+    }
+
     img {
       width: get-d(14px);
       height: get-d(14px);
       min-width: get-d(14px);
       min-height: get-d(14px);
+
+      @media (max-width: 561px) {
+        width: get(14px);
+        min-width: get(14px);
+        height: get(14px);
+        min-height: get(14px);
+      }
     }
   }
 
@@ -140,17 +213,36 @@
     color: #fff;
     background-color: $primary;
 
+    @media (max-width: 561px) {
+      padding: get(10px);
+      gap: get(10px);
+    }
+
     .icon {
       width: get-d(28px);
       min-width: get-d(28px);
       height: get-d(28px);
       min-height: get-d(28px);
 
+      @media (max-width: 561px) {
+        width: get(28px);
+        min-width: get(28px);
+        height: get(28px);
+        min-height: get(28px);
+      }
+
       img {
         width: get-d(14px);
         min-width: get-d(14px);
         height: get-d(14px);
         min-height: get-d(14px);
+
+        @media (max-width: 561px) {
+          width: get(14px);
+          min-width: get(14px);
+          height: get(14px);
+          min-height: get(14px);
+        }
       }
     }
   }

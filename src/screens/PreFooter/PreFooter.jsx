@@ -173,7 +173,10 @@ export const PreFooter = () => {
               {
                 <div className={styles.btnSpeak}>
                   <p className="txt-12">For Advisors</p>
-                  <p style={{ color: '#1A1A1A !important' }} className="txt-16">
+                  <p
+                    style={{ color: '#1A1A1A !important', fontWeight: 600 }}
+                    className="txt-16"
+                  >
                     Speak with us
                   </p>
                 </div>

@@ -10,6 +10,7 @@ import { ForAdvisors } from '../pages/ForAdvisors/ForAdvisors'
 export const App = () => {
   const [waitlistModalActive, setWaitlistModalActive] = useState(false)
   const [contactUsModalActive, setContactUsModalActive] = useState(false)
+  const [menuActive, setMenuActive] = useState(false)
 
   return (
     <MainContext.Provider
@@ -18,6 +19,8 @@ export const App = () => {
         setWaitlistModalActive,
         contactUsModalActive,
         setContactUsModalActive,
+        menuActive,
+        setMenuActive,
       }}
     >
       <Waitlist />

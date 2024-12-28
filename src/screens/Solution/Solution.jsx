@@ -3,7 +3,7 @@ import styles from './Solution.module.scss'
 
 export const Solution = () => {
   return (
-    <div className={styles.solution}>
+    <div id="how-it-works" className={styles.solution}>
       <div className={clsx('container', styles.solutionContainer)}>
         <div className="section-group centered">
           <h2 className="split-text">The most flexible solution</h2>
@@ -101,8 +101,7 @@ export const Solution = () => {
                 <div className={styles.icon}>
                   <img src="assets/icons/ti4.svg" alt="" />
                 </div>
-                <p>Parent Control of Use 
-                and Distributions</p>
+                <p>Parent Control of Use and Distributions</p>
               </div>
             </div>
             <div className={styles.solutionTableCell}>
@@ -124,8 +123,7 @@ export const Solution = () => {
                 <div className={styles.icon}>
                   <img src="assets/icons/ti5.svg" alt="" />
                 </div>
-                <p>Available for Children 
-                Without Earned Income</p>
+                <p>Available for Children Without Earned Income</p>
               </div>
             </div>
             <div className={styles.solutionTableCell}>
@@ -147,8 +145,7 @@ export const Solution = () => {
                 <div className={styles.icon}>
                   <img src="assets/icons/ti6.svg" alt="" />
                 </div>
-                <p>Annual Contribution 
-                Limits</p>
+                <p>Annual Contribution Limits</p>
               </div>
             </div>
             <div className={styles.solutionTableCell}>
@@ -170,8 +167,7 @@ export const Solution = () => {
                 <div className={styles.icon}>
                   <img src="assets/icons/ti7.svg" alt="" />
                 </div>
-                <p>Can Be Used as 
-                Loan Collateral</p>
+                <p>Can Be Used as Loan Collateral</p>
               </div>
             </div>
             <div className={styles.solutionTableCell}>

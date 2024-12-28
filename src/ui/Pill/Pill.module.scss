@@ -7,6 +7,12 @@
   border-radius: get-d(12px);
   background-color: #fff;
 
+  @media (max-width: 561px) {
+    padding: get(12px);
+    gap: get(8px);
+    border-radius: get(12px); 
+  }
+
   p {
     text-transform: uppercase;
     color: $navy07;
@@ -32,5 +38,12 @@
     height: get-d(16px);
     min-width: get-d(16px);
     min-height: get-d(16px);
+
+    @media (max-width: 561px) {
+      width: get(20px);
+      height: get(20px);
+      min-width: get(20px);
+      min-height: get(20px);
+    }
   }
 }

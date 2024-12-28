@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 11;
+  z-index: 112;
 
   pointer-events: none;
 
@@ -35,11 +35,25 @@
     align-items: center;
     justify-content: center;
 
+    @media (max-width: 561px) {
+      width: get(44px);
+      height: get(44px);
+      min-width: get(44px);
+      min-height: get(44px);
+    }
+
     svg {
       width: get-d(22px);
       height: get-d(22px);
       min-width: get-d(22px);
       min-height: get-d(22px);
+
+      @media (max-width: 561px) {
+        width: get(22px);
+        height: get(22px);
+        min-width: get(22px);
+        min-height: get(22px);
+      }
     }
   }
 
@@ -61,6 +75,14 @@
 
     transition: 0.3s ease;
     transition-property: scale, opacity;
+
+    @media (max-width: 561px) {
+      max-width: get(361px);
+      width: 100%;
+      gap: get(16px);
+      flex-direction: column-reverse;
+      align-items: end;
+    }
   }
 
   .overlay {

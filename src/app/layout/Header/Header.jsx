@@ -2,34 +2,122 @@ import clsx from 'clsx'
 import { Logo } from '../../../ui/Logo/Logo'
 import styles from './Header.module.scss'
 import { JoinButton } from '../../../components/JoinButton/JoinButton'
+import { Button } from '../../../ui/Button/Button'
+import { useContext } from 'react'
+import { MainContext } from '../../providers/MainContext'
+import { useLocation } from 'react-router-dom'
 
-const menuItems = ['home', 'calculate', 'how it works', 'benefits', 'FAQs']
+export const menuItems = [
+  {
+    name: 'home',
+    href: '#home',
+  },
+  {
+    name: 'calculate',
+    href: '#calculate',
+  },
+  {
+    name: 'how it works',
+    href: '#how-it-works',
+  },
+  {
+    name: 'benefits',
+    href: '#benefits',
+  },
+  {
+    name: 'FAQs',
+    href: '#faq',
+  },
+]
 
 export const Header = () => {
+  const { menuActive, setMenuActive } = useContext(MainContext)
+  const { pathname } = useLocation()
+
   return (
-    <header className={styles.header}>
+    <header className={clsx(styles.header, menuActive && styles.active)}>
       <div className={styles.logoGroup}>
-        <div className={clsx(styles.headerLogo, 'reveal scale')}>
+        <a href='/' className={clsx(styles.headerLogo, 'reveal scale')}>
           <Logo />
-        </div>
-        <div className={clsx(styles.switch, 'reveal fromRight')}>
-          <div className={clsx(styles.switchItem, styles.active)}>
+        </a>
+        <div className={clsx('switch', 'reveal fromRight')}>
+          <a
+            href="/"
+            className={clsx('switch-item', pathname === '/' && 'active')}
+          >
             For Parents
-          </div>
-          <div className={styles.switchItem}>For Advisors</div>
+          </a>
+          <a
+            href="/for-advisors"
+            className={clsx(
+              'switch-item',
+              pathname == '/for-advisors' && 'active'
+            )}
+          >
+            For Advisors
+          </a>
         </div>
       </div>
       <menu className={styles.menu}>
         {menuItems.map((item, idx) => (
           <a
             data-delay={idx * 0.15}
+            href={item.href}
             className={clsx(styles.menuItem, 'reveal word')}
           >
-            {item}
+            {item.name}
           </a>
         ))}
       </menu>
-      <JoinButton />
+      {window.innerWidth >= 561 ? (
+        <>
+          <JoinButton />
+        </>
+      ) : (
+        <div className={styles.headerMobileGroup}>
+          <JoinButton />
+          <div
+            onClick={() =>
+              menuActive ? setMenuActive(false) : setMenuActive(true)
+            }
+            className={clsx(
+              styles.burger,
+              menuActive && styles.active,
+              'reveal scale'
+            )}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 5L20 5"
+                stroke="#141B34"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M4 12L20 12"
+                stroke="#141B34"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M4 19L20 19"
+                stroke="#141B34"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

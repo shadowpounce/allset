@@ -21,11 +21,15 @@ export const Footer = () => {
           <ul className={styles.bottom}>
             <li>
               <a type="email" href="info@joinallset.com">
-                <p className="txt-14 split-text">info@joinallset.com</p>
+                <p data-start="top top+=95%" className="txt-14 split-text">
+                  info@joinallset.com
+                </p>
               </a>
             </li>
             <li>
-              <p className="txt-14 split-text">All Rights Reserved. ©2024</p>
+              <p data-start="top top+=95%" className="txt-14 split-text">
+                All Rights Reserved. ©2024
+              </p>
             </li>
           </ul>
         </div>
@@ -33,7 +37,7 @@ export const Footer = () => {
           data-delay="0.2"
           className={clsx(styles.footerBlock, 'reveal translate', styles.light)}
         >
-          <p className="txt-14 split-text">For Parents</p>
+          <p className={clsx('txt-14 split-text', styles.for)}>For Parents</p>
           <ul>
             <li className="split-text">Home</li>
             <li className="split-text">Calculate</li>
@@ -47,7 +51,9 @@ export const Footer = () => {
           className={clsx(styles.footerBlock, 'reveal translate', styles.dark)}
         >
           <div>
-            <p className="txt-14 split-text">For Advisors</p>
+            <p className={clsx('txt-14 split-text', styles.for)}>
+              For Advisors
+            </p>
             <h4 className="split-text">Offer trust funds for your clients</h4>
           </div>
           <SpeakButton />

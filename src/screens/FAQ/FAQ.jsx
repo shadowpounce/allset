@@ -38,7 +38,7 @@ const faqItems = [
 
 export const FAQ = () => {
   return (
-    <section className={styles.FAQ}>
+    <section id="faq" className={styles.FAQ}>
       <div className={clsx('container', styles.FAQContainer)}>
         <h2 className={clsx(styles.FAQTitle, 'split-text')}>
           Frequently Asked Questions

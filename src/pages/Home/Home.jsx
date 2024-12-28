@@ -8,19 +8,23 @@ import { Hero } from '../../screens/Hero/Hero'
 import { PreFooter } from '../../screens/PreFooter/PreFooter'
 import { SayHello } from '../../screens/SayHello/SayHello'
 import { Solution } from '../../screens/Solution/Solution'
+import { Menu } from '../../widgets/Menu/Menu'
 
 export const Home = () => {
   return (
-    <WithScrollSmoother>
+    <>
       <Header />
-      <Hero />
-      <Calculate />
-      <SayHello />
-      <Benefits />
-      <Solution />
-      <FAQ />
-      <PreFooter />
-      <Footer />
-    </WithScrollSmoother>
+      <Menu />
+      <WithScrollSmoother>
+        <Hero />
+        <Calculate />
+        <SayHello />
+        <Benefits />
+        <Solution />
+        <FAQ />
+        <PreFooter />
+        <Footer />
+      </WithScrollSmoother>
+    </>
   )
 }
