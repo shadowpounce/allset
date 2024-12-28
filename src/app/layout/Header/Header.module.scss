@@ -1,0 +1,72 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  padding: get-d(20px) get-d(24px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &Logo {
+    width: get-d(48px);
+    height: get-d(18px);
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: get-d(28px);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    &Item {
+      color: $grey4b;
+      text-transform: capitalize;
+    }
+  }
+
+  .logoGroup {
+    display: flex;
+    align-items: center;
+    gap: get-d(47px);
+
+    .switch {
+      background-color: $pinkf0;
+
+      display: flex;
+      align-items: stretch;
+      padding: get-d(6px);
+      border-radius: get-d(20px);
+
+      min-height: get-d(50px);
+      height: get-d(50px);
+
+      &Item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding-inline: get-d(14px);
+        border-radius: get-d(32px);
+
+        color: $grey4b;
+
+        transition: 0.4s ease;
+        transition-property: background-color, color;
+
+        min-width: get-d(125px);
+
+        &.active {
+          background-color: $navy07;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

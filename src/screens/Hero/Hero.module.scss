@@ -1,0 +1,110 @@
+.hero {
+  padding-top: get-d(150px);
+
+  &Bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 1.5 / 1;
+    z-index: -1;
+    animation: heroBgAnim 1s forwards ease;
+  }
+
+  @keyframes heroBgAnim {
+    from {
+      opacity: 0;
+      scale: 0.85;
+    }
+
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  &Wrap {
+    margin: get-d(250px) auto 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .row {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .block {
+        border-radius: get-d(23px);
+        background-color: #fff;
+        gap: get-d(12.65px);
+        display: flex;
+        align-items: start;
+        padding: get-d(16.5px);
+
+        .icon {
+          width: get-d(47px);
+          height: get-d(47px);
+          min-width: get-d(47px);
+          min-height: get-d(47px);
+          border-radius: 50%;
+          overflow: hidden;
+          object-fit: contain;
+          object-position: center;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: get-d(4.25px);
+
+          p:first-child {
+            color: $navy07;
+          }
+        }
+      }
+    }
+
+    .video {
+      width: get-d(400px);
+      max-width: get-d(400px);
+
+      position: absolute;
+      left: 50%;
+      translate: -50% 0;
+      bottom: -15%;
+      mix-blend-mode: darken;
+
+      video {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        position: relative;
+      }
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: get-d(26px);
+      max-width: get-d(240px);
+      width: 100%;
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      gap: get-d(8px);
+    }
+  }
+}

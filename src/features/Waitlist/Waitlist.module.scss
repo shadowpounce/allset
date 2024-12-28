@@ -1,0 +1,68 @@
+.waitlist {
+  display: flex;
+  gap: get-d(10px);
+
+  .video {
+    min-width: get-d(415px);
+    width: 100%;
+    max-width: get-d(415px);
+    background-color: $primary;
+    border-radius: get-d(20px);
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    text-align: center;
+    flex-direction: column;
+    gap: get-d(15px);
+
+    position: relative;
+
+    overflow: hidden;
+    padding-bottom: get-d(55px);
+
+    div[class='lf-player-container'] {
+      position: absolute;
+      top: 40%;
+      left: 53%;
+      width: 100%;
+      translate: -50% -50%;
+      z-index: 2;
+      scale: 1.2;
+    }
+
+    p {
+      font-size: get-d(23px) !important;
+      line-height: get-d(24px) !important;
+      max-width: get-d(250px);
+      color: #fff;
+      z-index: 3;
+      position: relative;
+    }
+
+    span {
+      font-size: get-d(16px);
+      line-height: get-d(19px);
+      color: #fff;
+      z-index: 3;
+      position: relative;
+    }
+
+    .circle {
+      width: 100%;
+      aspect-ratio: 1 / 1.5;
+      position: absolute;
+      top: -10%;
+      left: 0;
+      mix-blend-mode: multiply;
+      z-index: 1;
+      object-fit: cover;
+    }
+  }
+
+  &Form {
+    min-width: get-d(415px);
+    width: 100%;
+    max-width: get-d(415px);
+  }
+}

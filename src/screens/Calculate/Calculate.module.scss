@@ -1,0 +1,193 @@
+.calculate {
+  padding-block: get-d(185px) get-d(108px);
+
+  div[class='container'] {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: get-d(60px);
+  }
+
+  &SectionGroup {
+    max-width: get-d(650px);
+    width: 100%;
+    margin: 0 auto;
+
+    p {
+      max-width: get-d(475px);
+    }
+  }
+
+  &Wrap {
+    display: flex;
+    gap: get-d(40px);
+    align-items: center;
+
+    .chart {
+      padding: get-d(36px);
+      background-color: #fff;
+      border-radius: get-d(20px);
+
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: get-d(40px);
+
+      .canvas {
+        width: 100% !important;
+
+        translate: 0 10%;
+
+        canvas {
+          width: 100% !important;
+          height: auto !important;
+        }
+      }
+
+      .total {
+        display: flex;
+        justify-content: space-between;
+        gap: get-d(45px);
+
+        .potentialBalance {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          gap: get-d(22.6px);
+
+          h2 {
+            color: $navy07;
+          }
+        }
+
+        .secure {
+          padding: get-d(18px) get-d(8px) get-d(8.5px) get-d(16px);
+          background-color: $whitef7;
+          border-radius: get-d(14px);
+          display: flex;
+          align-items: end;
+          gap: get-d(4px);
+          position: relative;
+
+          max-width: get-d(220px);
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: get-d(14px);
+            translate: 0 -50%;
+            width: get-d(24px);
+            height: get-d(24px);
+            background-image: url('../../../public/assets/icons/flash.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+          }
+
+          .text {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: get-d(12px);
+
+            p:first-child {
+              color: $navy07;
+            }
+
+            p:last-child {
+              opacity: 0.5;
+              line-height: 140%;
+            }
+          }
+        }
+      }
+
+      .info {
+        display: flex;
+        align-items: center;
+        gap: get-d(9px);
+
+        .item {
+          display: flex;
+          align-items: center;
+          gap: get-d(8px);
+          padding: get-d(12px);
+          border-radius: get-d(12px);
+          background-color: $whitef7;
+
+          &:first-child {
+            .square {
+              background-color: $primary;
+            }
+          }
+
+          &:nth-child(2) {
+            .square {
+              background-color: $pinkd9;
+            }
+          }
+
+          p {
+            text-transform: capitalize;
+          }
+
+          .square {
+            width: get-d(12px);
+            min-width: get-d(12px);
+            height: get-d(12px);
+            min-height: get-d(12px);
+            border-radius: get-d(3px);
+          }
+        }
+      }
+    }
+
+    .panel {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: get-d(50px);
+      min-width: get-d(340px);
+      max-width: get-d(340px);
+      width: 100%;
+
+      .inputs {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: get-d(30px);
+
+        .input {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          gap: get-d(12px);
+
+          input {
+            &::first-letter {
+              color: #0a1d5440;
+            }
+          }
+        }
+      }
+
+      .buttons {
+        display: flex;
+        align-items: stretch;
+
+        gap: get-d(10px);
+
+        button:first-child {
+          flex-direction: row-reverse;
+          flex: 1;
+          padding-inline: 0;
+        }
+
+        button:nth-child(2) {
+          aspect-ratio: 1 / 1;
+        }
+      }
+    }
+  }
+}

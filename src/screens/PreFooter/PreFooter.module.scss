@@ -1,0 +1,197 @@
+.preFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: get-d(92px);
+
+  h2 {
+    max-width: get-d(700px);
+  }
+
+  .btnSpeak {
+    text-align: left !important;
+  }
+
+  &Row {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: get-d(20px);
+    padding-inline: get-d(20px);
+
+    div[id='pc1'] {
+      > div:not(:last-child) {
+        position: absolute;
+
+        &:first-child {
+          background-color: #fff;
+          rotate: -11deg !important;
+          top: 5% !important;
+          left: 45% !important;
+          min-width: get-d(252px);
+        }
+
+        &:nth-child(2) {
+          top: 25% !important;
+          left: 25% !important;
+          rotate: 7deg !important;
+
+          > div {
+            background-color: $pinkd9;
+          }
+
+          p {
+            text-transform: capitalize !important;
+          }
+        }
+      }
+    }
+
+    div[id='pc3'] {
+      > div {
+        &:first-child {
+          position: absolute;
+          top: -5% !important;
+          left: -5% !important;
+          rotate: -8.41deg !important;
+          background-color: #fff;
+          border-radius: get-d(20px);
+          padding: get-d(14px);
+          scale: 1.1;
+        }
+      }
+    }
+
+    .pfCard {
+      width: 100%;
+      flex: 1;
+      min-height: get-d(290px);
+      height: get-d(290px);
+
+      transition: translate 0.7s ease;
+
+      &:hover {
+        translate: 0 -10%;
+      }
+
+      &:nth-child(1) {
+        .card {
+          background-color: $primary;
+
+          .text {
+            p:first-child {
+              color: #fff;
+            }
+
+            p:last-child {
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      &:nth-child(3) {
+        .card {
+          background-color: $pinkd9;
+
+          .text {
+            p:first-child {
+              color: $navy07;
+            }
+
+            p:last-child {
+              color: $navy0a;
+            }
+          }
+        }
+      }
+
+      &:nth-child(5) {
+        .card {
+          background-color: $pinka7;
+
+          div[class='lf-player-container'] {
+            user-select: none;
+            pointer-events: none;
+            position: absolute;
+            scale: 4;
+            translate: 135% -25%;
+          }
+
+          .text {
+            p:first-child {
+              color: #fff;
+            }
+            p:last-child {
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      &:nth-child(7) {
+        .card {
+          background-color: $pinked;
+
+          div[class='lf-player-container'] {
+            user-select: none;
+            pointer-events: none;
+            position: absolute;
+            scale: 4.5;
+            translate: -100% 240%;
+          }
+
+          .text {
+            p:first-child {
+              color: $navy07;
+            }
+            p:last-child {
+              color: $navy0a;
+            }
+          }
+        }
+      }
+    }
+
+    .card {
+      border-radius: get-d(20px);
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      padding: get-d(25px) get-d(20px);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      position: relative;
+
+      &.justPhoto {
+        padding: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      &.txtBottom {
+        justify-content: end;
+      }
+
+      .text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: get-d(17px);
+
+        p:first-child {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

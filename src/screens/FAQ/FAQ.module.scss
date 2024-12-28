@@ -1,0 +1,22 @@
+.FAQ {
+  padding-block: get-d(180px);
+
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: get-d(65px);
+  }
+
+  &Title {
+    max-width: get-d(450px);
+    width: 100%;
+  }
+
+  &Items {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: get-d(16px);
+  }
+}

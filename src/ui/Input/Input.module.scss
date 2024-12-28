@@ -1,0 +1,48 @@
+.input {
+  min-height: get-d(52px);
+  height: get-d(52px);
+
+  padding: get-d(14px) get-d(16px);
+  border-radius: get-d(8px);
+
+  background-color: #f0f0f7;
+
+  width: 100%;
+
+  &.msg {
+    min-height: get-d(132px);
+    height: fit-content;
+  }
+
+  &.secondary {
+    background-color: #fff;
+
+    input {
+      color: $navy07;
+
+      &::placeholder {
+        color: $navy07;
+      }
+    }
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    height: 100%;
+
+    color: $grey47;
+    font-size: get-d(16px);
+    line-height: get-d(24px);
+    letter-spacing: -0.06em;
+    appearance: none;
+    -webkit-appearance: none;
+
+    &::placeholder {
+      color: $grey47;
+      font-size: get-d(16px);
+      line-height: get-d(24px);
+      letter-spacing: -0.06em;
+    }
+  }
+}

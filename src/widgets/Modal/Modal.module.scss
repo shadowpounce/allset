@@ -1,0 +1,78 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+
+  pointer-events: none;
+
+  &.active {
+    pointer-events: all;
+
+    .overlay {
+      opacity: 0.4;
+    }
+
+    .modalContent {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  &Close {
+    background-color: #f7f7f9;
+    width: get-d(44px);
+    height: get-d(44px);
+    min-width: get-d(44px);
+    min-height: get-d(44px);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: get-d(22px);
+      height: get-d(22px);
+      min-width: get-d(22px);
+      min-height: get-d(22px);
+    }
+  }
+
+  &Content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    width: fit-content;
+
+    display: flex;
+    align-items: start;
+    gap: get-d(10px);
+    z-index: 2;
+
+    opacity: 0;
+    scale: 0.8;
+
+    transition: 0.3s ease;
+    transition-property: scale, opacity;
+  }
+
+  .overlay {
+    background-color: #0c0c0c;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transition: opacity 0.35s ease;
+    z-index: 1;
+  }
+}

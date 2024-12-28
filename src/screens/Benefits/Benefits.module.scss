@@ -1,0 +1,175 @@
+.benefits {
+  padding-top: get-d(50px);
+
+  &Title {
+    text-align: center;
+
+    margin: 0 auto;
+
+    span {
+      margin: auto get-d(10px);
+      translate: -5% 15%;
+
+      img {
+        width: get-d(41px);
+        height: get-d(41px);
+        min-height: get-d(41px);
+        min-width: get-d(41px);
+      }
+    }
+  }
+
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: get-d(220px);
+  }
+
+  &Cards {
+    display: flex;
+    gap: get-d(20px);
+    flex-wrap: wrap;
+  }
+
+  &Card {
+    padding: get-d(32px);
+    border-radius: get-d(20px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+
+    flex: 1;
+
+    min-height: get-d(635px);
+    position: relative;
+
+    > div:first-child {
+      z-index: 1;
+      position: relative;
+    }
+
+    .bubble {
+      position: absolute;
+    }
+
+    .video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80%;
+      z-index: 0;
+    }
+
+    div[id='bubble-1'] {
+      top: get-d(158px);
+      left: 55% !important;
+      translate: -50% 0 !important;
+      rotate: -45deg;
+      transform-origin: center;
+
+      svg {
+        rotate: 4.39deg;
+      }
+    }
+
+    div[id='bubble-2'] {
+      top: get-d(84px);
+      rotate: 45deg;
+      left: 55% !important;
+      translate: -50% 0 !important;
+      transform-origin: center;
+
+      svg {
+        rotate: 11.88deg;
+      }
+    }
+
+    .animatedCard {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+    }
+
+    div[id='acard-1'] {
+      z-index: 4;
+      top: 32.5%;
+    }
+
+    div[id='acard-2'] {
+      left: 60%;
+      top: 52.5%;
+    }
+
+    div[id='acard-4'] {
+      left: 30%;
+      top: 40%;
+    }
+
+    div[id='acard-3'] {
+      top: 25%;
+      left: 75%;
+    }
+
+    > div:first-child {
+      background-color: $whitef7;
+    }
+
+    &:nth-child(1) {
+      background-image: url('../../../public/assets/images/bc1.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &:nth-child(2) {
+      background-color: #d9dcfa5c;
+    }
+
+    &:nth-child(3) {
+      background-color: #fff;
+    }
+
+    &.big {
+      padding-bottom: get-d(80px);
+
+      min-width: 100%;
+      min-height: get-d(440px);
+
+      .text {
+        h3 {
+          max-width: get-d(495px);
+        }
+
+        p {
+          max-width: get-d(424px);
+        }
+      }
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: get-d(21px);
+      z-index: 1;
+      position: relative;
+
+      h3,
+      h5 {
+        max-width: get-d(300px);
+        width: 100%;
+      }
+
+      p {
+        width: 100%;
+
+        max-width: get-d(415px);
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.plusBtn {
+  width: get-d(28px);
+  height: get-d(28px);
+  min-width: get-d(28px);
+  min-height: get-d(28px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $whitef7;
+  border-radius: 50%;
+
+  svg {
+    width: get-d(14px);
+    height: get-d(14px);
+    min-width: get-d(14px);
+    min-height: get-d(14px);
+  }
+}

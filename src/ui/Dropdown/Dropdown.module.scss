@@ -1,0 +1,64 @@
+.dropdown {
+  padding: get-d(24px);
+  background-color: #fff;
+  border-radius: get-d(16px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .body {
+    transition: 0.6s ease;
+    transition-property: height, opacity;
+    pointer-events: none;
+
+    display: flex;
+    align-items: end;
+
+    &.active {
+      pointer-events: all;
+
+      p {
+        opacity: 1 !important;
+        transition-delay: 0.35s;
+        transition-duration: 0.4s;
+      }
+    }
+
+    p {
+      color: $greya5;
+      font-size: get-d(16px);
+      line-height: get-d(22px);
+
+      transition: opacity 0.1s ease;
+
+      opacity: 0;
+    }
+  }
+
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    .title {
+      font-size: get-d(20px);
+      line-height: get-d(28px);
+      color: $dark;
+    }
+
+    .trigger {
+      width: get-d(24px);
+      height: get-d(24px);
+      min-width: get-d(24px);
+      min-height: get-d(24px);
+
+      cursor: pointer;
+
+      path {
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}

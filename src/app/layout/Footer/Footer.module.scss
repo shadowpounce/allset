@@ -1,0 +1,83 @@
+.footer {
+  padding: get-d(100px) 0;
+
+  &Container {
+    display: flex;
+    align-items: stretch;
+    gap: get-d(20px);
+  }
+
+  &Logo {
+    width: get-d(122px);
+    height: get-d(45px);
+  }
+
+  &Block {
+    display: flex;
+    flex-direction: column;
+    gap: get-d(32px);
+    border-radius: get-d(20px);
+    padding: get-d(32px);
+    flex: 1;
+    justify-content: space-between;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: get-d(16px);
+
+      li {
+        text-transform: capitalize;
+        font-size: get-d(32px);
+        line-height: 100%;
+      }
+    }
+
+    &.light {
+      color: $navy07 !important;
+      background-color: #fff;
+    }
+
+    &.dark {
+      background-color: $navy07;
+
+      button {
+        max-width: get-d(175px) !important;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: get-d(28px);
+
+        > *:not(button) {
+          color: #fff;
+        }
+      }
+    }
+
+    &.main {
+      flex: 1.25;
+      background-color: $pinkf0;
+      justify-content: space-between;
+
+      .bottom {
+        color: $grey47;
+        opacity: 0.5;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          gap: get-d(1px);
+        }
+      }
+
+      p {
+        max-width: get-d(240px);
+      }
+    }
+  }
+}

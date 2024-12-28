@@ -1,0 +1,36 @@
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: get-d(8px);
+  padding: get-d(12px);
+  border-radius: get-d(12px);
+  background-color: #fff;
+
+  p {
+    text-transform: uppercase;
+    color: $navy07;
+  }
+
+  &.secondary {
+    background-color: $whitef7;
+
+    p {
+      color: $grey47;
+    }
+
+    .icon {
+      width: get-d(20px);
+      height: get-d(20px);
+      min-width: get-d(20px);
+      min-height: get-d(20px);
+    }
+  }
+
+  .icon {
+    width: get-d(16px);
+    height: get-d(16px);
+    min-width: get-d(16px);
+    min-height: get-d(16px);
+  }
+}
