@@ -7,26 +7,29 @@ export const Input = ({
   placeholder,
   colorType,
   value,
-  setValue,
+  onChange,
+  addictionSymbol,
 }) => {
   return (
     <div
+      data-symbol={`${addictionSymbol ? addictionSymbol : ''}`}
       className={clsx(
         styles.input,
         type === 'message' && styles.msg,
-        colorType && styles[colorType]
+        colorType && styles[colorType],
+        addictionSymbol && styles.pl
       )}
     >
       {type !== 'message' ? (
         <input
-          onChange={(v) => {}}
+          onChange={onChange && onChange}
           value={value}
           type={type}
           placeholder={placeholder}
         />
       ) : (
         <textarea
-          onChange={(v) => {}}
+          onChange={onChange && onChange}
           value={value}
           type={type}
           placeholder={placeholder}

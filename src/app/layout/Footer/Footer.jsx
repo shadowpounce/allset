@@ -3,6 +3,7 @@ import styles from './Footer.module.scss'
 import { Logo } from '../../../ui/Logo/Logo'
 import { Button } from '../../../ui/Button/Button'
 import { SpeakButton } from '../../../components/SpeakButton/SpeakButton'
+import { menuItems } from '../Header/Header'
 
 export const Footer = () => {
   return (
@@ -37,13 +38,25 @@ export const Footer = () => {
           data-delay="0.2"
           className={clsx(styles.footerBlock, 'reveal translate', styles.light)}
         >
-          <p className={clsx('txt-14 split-text', styles.for)}>For Parents</p>
+          <p className={clsx('txt-14 split-text', styles.for)}>
+            <a href="/">For Parents</a>
+          </p>
           <ul>
-            <li className="split-text">Home</li>
-            <li className="split-text">Calculate</li>
-            <li className="split-text">How it Works</li>
-            <li className="split-text">Benefits</li>
-            <li className="split-text">FAQs</li>
+            {menuItems.map((item) => (
+              <li
+                className="split-text"
+                onClick={(ev) => {
+                  ev.preventDefault()
+                  window.scrollTo({
+                    left: 0,
+                    top: document.querySelector(item.href).offsetTop,
+                    behavior: 'smooth',
+                  })
+                }}
+              >
+                {item.name}
+              </li>
+            ))}
           </ul>
         </div>
         <div
@@ -52,7 +65,7 @@ export const Footer = () => {
         >
           <div>
             <p className={clsx('txt-14 split-text', styles.for)}>
-              For Advisors
+              <a href="/for-advisors">For Advisors</a>
             </p>
             <h4 className="split-text">Offer trust funds for your clients</h4>
           </div>

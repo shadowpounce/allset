@@ -31,7 +31,7 @@ export const ContactUs = () => {
             </div>
             <div className="input-group">
               <Input type="email" placeholder="Email" />
-              <Input type="phone" placeholder="Phone Number" />
+              <Input type="phone" placeholder="Phone number" />
             </div>
             <div className="input-group">
               <Input type="text" placeholder="First name" />

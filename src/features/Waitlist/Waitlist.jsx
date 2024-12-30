@@ -8,6 +8,15 @@ import clsx from 'clsx'
 import { Player } from '@lottiefiles/react-lottie-player'
 import { useEffect, useState } from 'react'
 
+const WAITLIST_ID = 23498
+
+function validateEmail(email) {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    return true
+  }
+  return false
+}
+
 export const Waitlist = () => {
   const { waitlistModalActive, setWaitlistModalActive } =
     useContext(MainContext)
@@ -15,15 +24,60 @@ export const Waitlist = () => {
   const [lottie, setLottie] = useState(null)
   const [load, setLoad] = useState(false)
 
+  const [data, setData] = useState({
+    waitlist_id: WAITLIST_ID,
+    referral_link: document.URL,
+    email: '',
+  })
+
+  const submitWaitlist = () => {
+    if (!data.email) {
+      alert('Please enter your email')
+      return
+    }
+
+    if (!validateEmail(data.email)) {
+      alert('Please enter a valid email')
+      return
+    }
+
+    alert(1)
+
+    fetch('https://api.getwaitlist.com/api/v1/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   useEffect(() => {
     if (load && lottie && waitlistModalActive) {
       lottie.play()
     }
   }, [load, lottie, waitlistModalActive])
 
+  useEffect(() => {
+    console.log(data)
+  }, [data])
+
   return (
     <Modal active={waitlistModalActive} setActive={setWaitlistModalActive}>
-      <div className={styles.waitlist}>
+      <form
+        onSubmit={(ev) => {
+          ev.preventDefault()
+          submitWaitlist()
+        }}
+        className={styles.waitlist}
+      >
         <div className={styles.video}>
           <Player
             onEvent={(ev) => {
@@ -56,11 +110,20 @@ export const Waitlist = () => {
           <div className="inputs">
             <Input type="text" placeholder="First name" />
             <Input type="text" placeholder="Last name" />
-            <Input type="email" placeholder="Email" />
+            <Input
+              type="email"
+              onChange={(ev) =>
+                setData({
+                  ...data,
+                  email: ev.target.value,
+                })
+              }
+              placeholder="Email"
+            />
             <Input type="text" placeholder="State of residence" />
           </div>
           <div className="bottom">
-            <JoinButton animated={false} />
+            <JoinButton type="submit" animated={false} />
             <p className="txt-14 bottom-row">
               Signed up before?{' '}
               <a className="c-primary bold" href="">
@@ -69,7 +132,7 @@ export const Waitlist = () => {
             </p>
           </div>
         </div>
-      </div>
+      </form>
     </Modal>
   )
 }

@@ -37,7 +37,7 @@ export const Header = () => {
   return (
     <header className={clsx(styles.header, menuActive && styles.active)}>
       <div className={styles.logoGroup}>
-        <a href='/' className={clsx(styles.headerLogo, 'reveal scale')}>
+        <a href="/" className={clsx(styles.headerLogo, 'reveal scale')}>
           <Logo />
         </a>
         <div className={clsx('switch', 'reveal fromRight')}>
@@ -61,6 +61,14 @@ export const Header = () => {
       <menu className={styles.menu}>
         {menuItems.map((item, idx) => (
           <a
+            onClick={(ev) => {
+              ev.preventDefault()
+              window.scrollTo({
+                left: 0,
+                top: document.querySelector(item.href).offsetTop,
+                behavior: 'smooth',
+              })
+            }}
             data-delay={idx * 0.15}
             href={item.href}
             className={clsx(styles.menuItem, 'reveal word')}

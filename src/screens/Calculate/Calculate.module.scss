@@ -8,6 +8,26 @@
     gap: get-d(60px);
   }
 
+  .tooltip {
+    background-color: $navy0a;
+    border-radius: get-d(14px);
+    padding: get-d(12px) get-d(16px);
+     
+    > p {
+      color: #fff;
+    }
+  }
+
+  g[class="recharts-layer recharts-cartesian-axis recharts-yAxis yAxis"] {
+    line[class="recharts-cartesian-axis-line"] {
+      display: none !important;
+    }
+  }
+
+  g[class="recharts-cartesian-grid-vertical"] {
+    display: none !important;
+  }
+
   &SectionGroup {
     max-width: get-d(650px);
     width: 100%;
@@ -45,6 +65,9 @@
       align-items: stretch;
       gap: get-d(40px);
 
+      flex: 1;
+      width: 100%;
+
       @media (max-width: 561px) {
         width: 100%;
         border-radius: get(10px);
@@ -56,6 +79,8 @@
         width: 100% !important;
 
         translate: 0 10%;
+
+        aspect-ratio: 1 / 0.5;
 
         canvas {
           width: 100% !important;

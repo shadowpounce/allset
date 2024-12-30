@@ -10,10 +10,12 @@ export const Button = ({
   className,
   onClick,
   animated = false,
+  btnType,
 }) => {
   return (
     <GsapMagnetic>
       <button
+        type={btnType ? btnType : 'button'}
         onClick={onClick && onClick}
         className={clsx(
           styles.button,

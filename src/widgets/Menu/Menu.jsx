@@ -33,6 +33,12 @@ export const Menu = () => {
           <li
             onClick={() => {
               setMenuActive(false)
+              ev.preventDefault()
+              window.scrollTo({
+                left: 0,
+                top: document.querySelector(item.href).offsetTop,
+                behavior: 'smooth',
+              })
             }}
           >
             <a href={item.href}>{item.name}</a>

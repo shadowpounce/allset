@@ -9,6 +9,34 @@
 
   width: 100%;
 
+  position: relative;
+
+  &.pl {
+    padding-left: get-d(20px);
+
+    @media (max-width: 561px) {
+      padding-left: get(18px);
+    }
+  }
+
+  &:before {
+    content: attr(data-symbol);
+    color: #0a1d5440;
+    font-size: get-d(16px);
+    line-height: get-d(24px);
+    letter-spacing: -0.06em;
+
+    position: absolute;
+    top: 51.5%;
+    left: 0;
+    translate: 100% -50%;
+
+    @media (max-width: 561px) {
+      font-size: get(20px);
+      line-height: get(24px);
+    }
+  }
+
   @media (max-width: 561px) {
     min-height: get(45.5px);
     height: get(45.5px);
