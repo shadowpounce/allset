@@ -33,6 +33,21 @@ export const Calculate = () => {
     console.log(formatCurrency(results.finalBalance))
   }, [results])
 
+  const formatWithCommas = (value) => {
+    return new Intl.NumberFormat('en-US', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(value)
+  }
+
+  const parseNumber = (value) => {
+    return parseFloat(value.replace(/,/g, '')) || 0
+  }
+
+  const getFormattedValue = (field) => {
+    return formatWithCommas(inputs[field])
+  }
+
   const calculateTrajectory = (inputs) => {
     const { initialContribution, monthlySavings, annualGift, childAge } = inputs
     const annualRate = 0.08
@@ -100,8 +115,16 @@ export const Calculate = () => {
     }).format(value)
   }
 
+  // const handleInputChange = (field, value) => {
+  //   const numValue = parseFloat(value) || 0
+  //   setInputs((prev) => ({
+  //     ...prev,
+  //     [field]: numValue,
+  //   }))
+  // }
+
   const handleInputChange = (field, value) => {
-    const numValue = parseFloat(value) || 0
+    const numValue = parseNumber(value)
     setInputs((prev) => ({
       ...prev,
       [field]: numValue,
@@ -151,11 +174,11 @@ export const Calculate = () => {
                 <Input
                   addictionSymbol="$"
                   colorType="secondary"
-                  value={inputs.initialContribution}
+                  value={getFormattedValue('initialContribution')}
                   onChange={(e) =>
                     handleInputChange('initialContribution', e.target.value)
                   }
-                  type="number"
+                  type="text"
                 />
               </div>
               <div className={clsx(styles.input, 'reveal scale')}>
@@ -163,11 +186,11 @@ export const Calculate = () => {
                 <Input
                   addictionSymbol="$"
                   colorType="secondary"
-                  value={inputs.monthlySavings}
+                  value={getFormattedValue('monthlySavings')}
                   onChange={(e) =>
                     handleInputChange('monthlySavings', e.target.value)
                   }
-                  type="number"
+                  type="text"
                 />
               </div>
               <div className={clsx(styles.input, 'reveal scale')}>
@@ -175,22 +198,22 @@ export const Calculate = () => {
                 <Input
                   addictionSymbol="$"
                   colorType="secondary"
-                  value={inputs.annualGift}
+                  value={getFormattedValue('annualGift')}
                   onChange={(e) =>
                     handleInputChange('annualGift', e.target.value)
                   }
-                  type="number"
+                  type="text"
                 />
               </div>
               <div className={clsx(styles.input, 'reveal scale')}>
                 <p className="txt-18">Your kid’s age</p>
                 <Input
                   colorType="secondary"
-                  value={inputs.childAge}
+                  value={getFormattedValue('childAge')}
                   onChange={(e) =>
                     handleInputChange('childAge', e.target.value)
                   }
-                  type="number"
+                  type="text"
                 />
               </div>
             </div>

@@ -4,8 +4,11 @@ import { Logo } from '../../../ui/Logo/Logo'
 import { Button } from '../../../ui/Button/Button'
 import { SpeakButton } from '../../../components/SpeakButton/SpeakButton'
 import { menuItems } from '../Header/Header'
+import { useLocation } from 'react-router-dom'
 
 export const Footer = () => {
+  const { pathname } = useLocation()
+
   return (
     <footer className={styles.footer}>
       <div className={clsx('container', styles.footerContainer)}>
@@ -46,12 +49,16 @@ export const Footer = () => {
               <li
                 className="split-text"
                 onClick={(ev) => {
-                  ev.preventDefault()
-                  window.scrollTo({
-                    left: 0,
-                    top: document.querySelector(item.href).offsetTop,
-                    behavior: 'smooth',
-                  })
+                  if (pathname === '/') {
+                    ev.preventDefault()
+                    window.scrollTo({
+                      left: 0,
+                      top: document.querySelector(item.href).offsetTop,
+                      behavior: 'smooth',
+                    })
+                  } else {
+                    location.href = '/'
+                  }
                 }}
               >
                 {item.name}
