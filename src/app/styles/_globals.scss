@@ -207,6 +207,12 @@ body {
   border-radius: get-d(12px);
   background-color: $pinked;
   padding: get-d(8.5px);
+  font-weight: 500 !important;
+  letter-spacing: -0.06em !important;
+
+  .counter {
+    font-weight: 500 !important;
+  }
 
   @media (max-width: 561px) {
     border-radius: get(10px);
@@ -261,7 +267,6 @@ body {
 
       p {
         font-size: get-d(10.75px) !important;
-        font-weight: 400;
 
         @media (max-width: 561px) {
           font-size: get(8px) !important;

@@ -5,6 +5,11 @@ import { Pill } from '../../ui/Pill/Pill'
 import styles from './Hero.module.scss'
 import { Player } from '@lottiefiles/react-lottie-player'
 import { createRef, useEffect, useState, useRef } from 'react'
+import gsap from 'gsap'
+
+import TextPlugin from 'gsap/TextPlugin'
+
+gsap.registerPlugin(TextPlugin)
 
 export const Hero = () => {
   const playerRef = useRef(null)
@@ -22,6 +27,62 @@ export const Hero = () => {
     }
   }, [load, lottie])
 
+  useEffect(() => {
+    if (load) {
+      console.log(1)
+
+      gsap
+        .timeline({
+          repeat: -1,
+        })
+        .to('.hero-text-change', {
+          duration: 3,
+          text: {
+            value: 'future home',
+            chars: 'XO',
+            revealDelay: 0.5,
+            speed: 1.75,
+          },
+        })
+        .to('.hero-text-change', {
+          duration: 3,
+          text: {
+            value: 'financial independence',
+            chars: 'XO',
+            revealDelay: 0.5,
+            speed: 1.75,
+          },
+        })
+        .to('.hero-text-change', {
+          duration: 3,
+          text: {
+            value: 'retirement',
+            chars: 'XO',
+            revealDelay: 0.5,
+            speed: 1.75,
+          },
+        })
+        .to('.hero-text-change', {
+          duration: 3,
+          text: {
+            value: 'college',
+            chars: 'XO',
+            revealDelay: 0.5,
+            speed: 1.75,
+          },
+        })
+        .to('.hero-text-change', {
+          duration: 3,
+          text: {
+            value: 'first business',
+            chars: 'XO',
+            revealDelay: 0.5,
+            speed: 1.75,
+          },
+        })
+    }
+  }, [load])
+
   return (
     <section id="home" className={styles.hero}>
       <div className={clsx(styles.heroBg, '')}>
@@ -29,10 +90,14 @@ export const Hero = () => {
       </div>
       <div className="container">
         <div className="section-group centered">
-          <h1 className="split-text reveal opacity">
-            Invest in your child’s
-            <span>first business</span>
-          </h1>
+          <div>
+            <h1 className="split-text reveal opacity">
+              Invest in your child’s
+            </h1>
+            <h1 className="split-text reveal opacity">
+              <span className="hero-text-change">first business</span>
+            </h1>
+          </div>
           <div className="buttons-wrap">
             <div className="reveal scale">
               <JoinButton />
