@@ -1,7 +1,8 @@
 import clsx from 'clsx'
+import { MainContext } from '../../app/providers/MainContext'
 import styles from './Calculate.module.scss'
 import { Input } from '../../ui/Input/Input'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Button } from '../../ui/Button/Button'
 import {
   BarChart,
@@ -15,11 +16,13 @@ import {
 } from 'recharts'
 
 export const Calculate = () => {
+  const { setHowItWorksModalActive } = useContext(MainContext)
+
   const [inputs, setInputs] = useState({
     initialContribution: 10000,
     monthlySavings: 500,
     annualGift: 1000,
-    childAge: 0,
+    childAge: 1,
   })
 
   const [results, setResults] = useState({
@@ -219,11 +222,15 @@ export const Calculate = () => {
             </div>
             <div className={clsx(styles.buttons, 'reveal scale')}>
               <Button icon="assets/icons/math.svg">Calculate</Button>
-              <Button type="circle" icon="assets/icons/question.svg"></Button>
+              <Button
+                onClick={() => setHowItWorksModalActive(true)}
+                type="circle"
+                icon="assets/icons/question.svg"
+              ></Button>
             </div>
           </div>
           <div className={clsx(styles.chart, 'reveal translate')}>
-            {/* <div className={styles.info}>
+            <div className={styles.info}>
               <div className={clsx(styles.item, 'reveal scale')}>
                 <div className={styles.square}></div>
                 <p className="txt-14">your contributions</p>
@@ -232,7 +239,7 @@ export const Calculate = () => {
                 <div className={styles.square}></div>
                 <p className="txt-14">investment gains</p>
               </div>
-            </div> */}
+            </div>
             <div
               data-duration="2.5"
               data-delay="0.5"

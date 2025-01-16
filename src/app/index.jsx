@@ -4,12 +4,15 @@ import './styles/index.scss'
 import { MainContext } from './providers/MainContext'
 import { useState } from 'react'
 import { Waitlist } from '../features/Waitlist/Waitlist'
+import { HowItWorks } from '../features/HowItWorks/HowItWorks'
 import { ContactUs } from '../features/ContactUs/ContactUs'
 import { ForAdvisors } from '../pages/ForAdvisors/ForAdvisors'
 
 export const App = () => {
   const [waitlistModalActive, setWaitlistModalActive] = useState(false)
   const [contactUsModalActive, setContactUsModalActive] = useState(false)
+  const [howItWorksModalActive, setHowItWorksModalActive] = useState(false)
+
   const [menuActive, setMenuActive] = useState(false)
 
   return (
@@ -21,10 +24,13 @@ export const App = () => {
         setContactUsModalActive,
         menuActive,
         setMenuActive,
+        howItWorksModalActive,
+        setHowItWorksModalActive,
       }}
     >
       <Waitlist />
       <ContactUs />
+      <HowItWorks />
       <>
         <BrowserRouter>
           <Routes>

@@ -1,0 +1,11 @@
+.howItWorks {
+  display: flex;
+  flex-direction: column;
+  gap: get-d(12px);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  max-width: get-d(535px);
+  width: 100%;
+}

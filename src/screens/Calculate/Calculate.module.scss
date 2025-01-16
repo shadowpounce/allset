@@ -12,19 +12,49 @@
     background-color: $navy0a;
     border-radius: get-d(14px);
     padding: get-d(12px) get-d(16px);
-     
+    display: flex;
+    flex-direction: column;
+
     > p {
       color: #fff;
+
+      &:first-child {
+        margin-bottom: 6px;
+      }
     }
   }
 
-  g[class="recharts-layer recharts-cartesian-axis recharts-yAxis yAxis"] {
-    line[class="recharts-cartesian-axis-line"] {
+  ul[class='recharts-default-legend'] {
+    display: none;
+  }
+
+  path[class='recharts-rectangle'] {
+    border-radius: 4.2px;
+  }
+
+  g[class='recharts-layer recharts-cartesian-axis recharts-yAxis yAxis'] {
+    tspan {
+      font-size: 0.75vw;
+      color: #474747;
+      opacity: 0.5;
+    }
+  }
+
+  g[class='recharts-layer recharts-cartesian-axis recharts-xAxis xAxis'] {
+    tspan {
+      font-size: 0.75vw;
+      color: #474747;
+      opacity: 0.5;
+    }
+  }
+
+  g[class='recharts-layer recharts-cartesian-axis recharts-yAxis yAxis'] {
+    line[class='recharts-cartesian-axis-line'] {
       display: none !important;
     }
   }
 
-  g[class="recharts-cartesian-grid-vertical"] {
+  g[class='recharts-cartesian-grid-vertical'] {
     display: none !important;
   }
 
