@@ -8,4 +8,9 @@
 
   max-width: get-d(535px);
   width: 100%;
+
+  @media (max-width: 561px) {
+    max-width: 100%;
+    gap: get(16px);
+  }
 }

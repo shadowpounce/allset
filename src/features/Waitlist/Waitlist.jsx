@@ -7,6 +7,8 @@ import { MainContext } from '../../app/providers/MainContext'
 import clsx from 'clsx'
 import { Player } from '@lottiefiles/react-lottie-player'
 import { useEffect, useState } from 'react'
+import { Select } from '../../ui/Select/Select'
+import { statesData } from './data'
 
 const WAITLIST_ID = 23498
 
@@ -120,7 +122,7 @@ export const Waitlist = () => {
               }
               placeholder="Email"
             />
-            <Input type="text" placeholder="State of residence" />
+            <Select data={statesData} />
           </div>
           <div className="bottom">
             <JoinButton type="submit" animated={false} />
