@@ -122,7 +122,7 @@ export const Waitlist = () => {
               }
               placeholder="Email"
             />
-            <Select data={statesData} />
+            <Select initValue="State of residence" data={statesData} />
           </div>
           <div className="bottom">
             <JoinButton type="submit" animated={false} />

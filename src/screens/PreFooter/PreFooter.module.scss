@@ -91,13 +91,15 @@
       > div {
         &:first-child {
           position: absolute;
-          top: -5% !important;
-          left: -5% !important;
-          rotate: -8.41deg !important;
-          background-color: #fff;
-          border-radius: get-d(20px);
-          padding: get-d(14px);
-          scale: 1.1;
+          scale: 3;
+          top: 130%;
+          rotate: -45deg;
+          left: -157%;
+
+          @media (max-width: 561px) {
+            top: 200%;
+            left: -275%;
+          }
         }
       }
     }

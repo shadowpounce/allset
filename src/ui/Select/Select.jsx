@@ -3,16 +3,20 @@ import React, { useState } from 'react'
 import styles from './Select.module.scss'
 import clsx from 'clsx'
 
-export const Select = ({ data }) => {
+export const Select = ({ data, initValue }) => {
   const [active, setActive] = useState(false)
   const [activeItem, setActiveItem] = useState(data[0])
+  const [value, setValue] = useState(initValue)
 
   return (
     <div className={clsx(styles.select, active && styles.active)}>
-      <div onClick={() => {
-        active ? setActive(false) : setActive(true)
-      }} className={styles.head}>
-        <input type="text" placeholder={activeItem} />
+      <div
+        onClick={() => {
+          active ? setActive(false) : setActive(true)
+        }}
+        className={styles.head}
+      >
+        <input type="text" placeholder={value} />
         <div className={styles.arrow}>
           <svg
             width="16"
@@ -37,10 +41,11 @@ export const Select = ({ data }) => {
           {data &&
             data.map((item) => (
               <div
-              onClick={() => {
-                setActiveItem(item)
-                setActive(false)
-              }}
+                onClick={() => {
+                  setActiveItem(item)
+                  setValue(item)
+                  setActive(false)
+                }}
                 className={styles.item}
                 // onClick={() => setActive(item)}
                 key={item}

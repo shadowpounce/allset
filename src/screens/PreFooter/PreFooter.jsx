@@ -11,12 +11,12 @@ import { MainContext } from '../../app/providers/MainContext'
 export const PreFooter = () => {
   const { setContactUsModalActive } = useContext(MainContext)
 
-  const playerRef = useRef(null)
-
   const [lottie, setLottie] = useState(null)
   const [lottieTwo, setLottieTwo] = useState(null)
+  const [lottieThree, setLottieThree] = useState(null)
   const [load, setLoad] = useState(false)
   const [loadTwo, setLoadTwo] = useState(false)
+  const [loadThree, setLoadThree] = useState(false)
 
   useEffect(() => {
     if (load && lottie) {
@@ -37,6 +37,16 @@ export const PreFooter = () => {
       })
     }
   }, [loadTwo, lottieTwo])
+
+  useEffect(() => {
+    if (loadThree && lottieThree) {
+      ScrollTrigger.create({
+        trigger: lottie.wrapper,
+        start: 'top top+=50%',
+        onEnter: () => lottieThree.play(),
+      })
+    }
+  }, [loadThree, lottieThree])
 
   return (
     <section className={styles.preFooter}>
@@ -81,9 +91,17 @@ export const PreFooter = () => {
             data-delay="0.55"
             className={clsx(styles.card, 'reveal scale', styles.txtBottom)}
           >
-            <div className="reveal scale" data-delay="1.25" data-duration="3">
-              <Chart />
-            </div>
+            <Player
+              id="lottie0"
+              onEvent={(ev) => {
+                if (ev === 'load') {
+                  setLoadThree(true)
+                }
+              }}
+              keepLastFrame
+              lottieRef={(instance) => setLottieThree(instance)}
+              src="assets/videos/pf3.json"
+            ></Player>
             <div className={styles.text}>
               <p className="txt-14">Investments Grow </p>
               <p className="txt-24">Power of Compounding</p>

@@ -5,7 +5,9 @@ import { MainContext } from '../../app/providers/MainContext'
 import { Modal } from '../../widgets/Modal/Modal'
 import clsx from 'clsx'
 import { Input } from '../../ui/Input/Input'
+import { Select } from '../../ui/Select/Select'
 import { Button } from '../../ui/Button/Button'
+import { statesData } from '../Waitlist/data'
 
 export const ContactUs = () => {
   const { contactUsModalActive, setContactUsModalActive } =
@@ -38,8 +40,18 @@ export const ContactUs = () => {
               <Input type="text" placeholder="First name" />
             </div>
             <div className="input-group">
-              <Input type="text" placeholder="AUM" />
-              <Input type="text" placeholder="State" />
+              <Select
+                initValue="AUM"
+                data={[
+                  `Less than $50M`,
+                  `$50M to $250M`,
+                  `$250M to $1B`,
+                  `$1B to $10B`,
+                  `More than $10B`,
+                ]}
+              />
+
+              <Select initValue="State of residence" data={statesData} />
             </div>
             <Input type="message" placeholder="How can we help you?" />
           </div>
