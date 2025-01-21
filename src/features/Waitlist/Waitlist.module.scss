@@ -4,7 +4,7 @@
 
   @media (max-width: 561px) {
     flex-direction: column;
-    gap: get(16px);
+    gap: get(8px);
     width: 100%;
   }
 
@@ -28,7 +28,7 @@
     padding-bottom: get-d(55px);
 
     @media (max-width: 561px) {
-      aspect-ratio: 1 / 0.8;
+      aspect-ratio: 1 / 0.4;
       min-width: 100%;
       max-width: 100%;
       border-radius: get(17.5px);
@@ -60,7 +60,11 @@
       @media (max-width: 561px) {
         font-size: get(22px) !important;
         line-height: get(23px) !important;
-        max-width: get(245px);
+        max-width: get(255px);
+
+        background-color: rgba(0, 0, 0, 0.35);
+        padding: get(10px);
+        border-radius: get(8px);
       }
     }
 

@@ -36,8 +36,8 @@ export const ContactUs = () => {
               <Input type="phone" placeholder="Phone number" />
             </div>
             <div className="input-group">
-              <Input type="text" placeholder="First name" />
-              <Input type="text" placeholder="First name" />
+              <Input type="text" placeholder="Firm name" />
+              <Input type="text" placeholder="Firm website" />
             </div>
             <div className="input-group">
               <Select

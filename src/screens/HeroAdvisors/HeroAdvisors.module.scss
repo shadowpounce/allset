@@ -112,6 +112,7 @@
     position: absolute;
     top: 75%;
     left: 50%;
+    mix-blend-mode: color;
     translate: -50% -50%;
 
     @media (max-width: 561px) {
