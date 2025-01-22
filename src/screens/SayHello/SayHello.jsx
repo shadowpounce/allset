@@ -74,7 +74,7 @@ export const SayHello = () => {
             autoPlay
             playsInline
             muted
-            src="assets/videos/circle.mp4"
+            src="assets/videos/phonecircle.mp4"
             className={styles.circle}
             id="circles"
           ></video>
