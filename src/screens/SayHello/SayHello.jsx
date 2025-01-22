@@ -4,22 +4,60 @@ import { gsap } from 'gsap'
 import styles from './SayHello.module.scss'
 
 export const SayHello = () => {
-  const [lottie, setLottie] = useState(null)
-  const [load, setLoad] = useState(false)
+  const videoRef = useRef(null)
+  const videoWrRef = useRef(null)
 
   useEffect(() => {
-    if (load && lottie) {
-      const ctx = gsap.context(() => {
-        ScrollTrigger.create({
-          trigger: lottie.wrapper,
-          start: 'top top+=50%',
-          onEnter: () => lottie.play(),
-        })
+    if (videoRef.current && videoWrRef.current) {
+      const video = document.getElementById('circles')
+      const endFirstCycle = 8 // Первая точка завершения видео
+      const loopStart = 4 // Секунда, с которой начинается повтор
+      const loopEnd = 8 // Секунда, на которой заканчивается повтор
+
+      let isInitialPlay = true // Флаг для отслеживания первого воспроизведения
+
+      video.addEventListener('timeupdate', () => {
+        if (isInitialPlay && video.currentTime >= endFirstCycle) {
+          video.currentTime = loopStart
+          isInitialPlay = false
+        } else if (!isInitialPlay && video.currentTime >= loopEnd) {
+          video.currentTime = loopStart
+        }
       })
 
-      return () => ctx.destroy()
+      video.addEventListener('ended', () => {
+        // Если нужно перезапустить видео в случае, если проигрыватель завершил цикл
+        if (!isInitialPlay) {
+          video.currentTime = loopStart
+          video.play()
+        }
+      })
+
+      const ctx = gsap.context(() => {
+        ScrollTrigger.create({
+          trigger: videoWrRef.current,
+          start: 'top top+=50%',
+          onEnter: () => videoRef.current.play(),
+        })
+      })
     }
-  }, [load, lottie])
+  }, [videoRef, videoWrRef])
+  // const [lottie, setLottie] = useState(null)
+  // const [load, setLoad] = useState(false)
+
+  // useEffect(() => {
+  //   if (load && lottie) {
+  //     const ctx = gsap.context(() => {
+  //       ScrollTrigger.create({
+  //         trigger: lottie.wrapper,
+  //         start: 'top top+=50%',
+  //         onEnter: () => lottie.play(),
+  //       })
+  //     })
+
+  //     return () => ctx.destroy()
+  //   }
+  // }, [load, lottie])
 
   return (
     <section className={styles.say}>
@@ -30,16 +68,18 @@ export const SayHello = () => {
           </big>
           <p className="txt-24">Secure your child's future</p>
         </div>
-        <div className={styles.video}>
+        <div ref={videoWrRef} className={styles.video}>
           <video
+            ref={videoRef}
             autoPlay
             playsInline
             muted
-            loop
             src="assets/videos/circle.mp4"
             className={styles.circle}
+            id="circles"
           ></video>
-          <Player
+
+          {/* <Player
             onEvent={(ev) => {
               if (ev === 'load') {
                 setLoad(true)
@@ -48,7 +88,7 @@ export const SayHello = () => {
             keepLastFrame
             lottieRef={(instance) => setLottie(instance)}
             src="assets/videos/phone.json"
-          ></Player>
+          ></Player> */}
         </div>
       </div>
     </section>
