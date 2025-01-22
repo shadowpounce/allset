@@ -79,10 +79,10 @@ export const Header = () => {
         ))}
       </menu>
       {window.innerWidth >= 561 ? (
-        <>{pathname === '/' ? <JoinButton /> : <SpeakButton />}</>
+        <>{pathname === '/' ? <JoinButton /> : <SpeakButton type='primarySex' />}</>
       ) : (
         <div className={styles.headerMobileGroup}>
-          <>{pathname === '/' ? <JoinButton /> : <SpeakButton />}</>
+          <>{pathname === '/' ? <JoinButton /> : <SpeakButton type='primarySex' />}</>
           <div
             onClick={() =>
               menuActive ? setMenuActive(false) : setMenuActive(true)
