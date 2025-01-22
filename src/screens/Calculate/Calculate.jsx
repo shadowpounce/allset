@@ -247,7 +247,7 @@ export const Calculate = () => {
             >
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
-                  data={results.data}
+                  data={results.data.filter((_, index) => index % 2 === 0)}
                   margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -256,12 +256,14 @@ export const Calculate = () => {
                   <Tooltip content={<CustomTooltip />} />
                   <Legend />
                   <Bar
+                    radius={[2.5, 2.5, 0, 0]}
                     dataKey="cumulativeContributions"
                     stackId="a"
                     fill="#d9dcfa"
                     name="Total Contributions"
                   />
                   <Bar
+                    radius={[2.5, 2.5, 0, 0]}
                     dataKey="cumulativeReturns"
                     stackId="a"
                     fill="#8884d8"

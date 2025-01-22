@@ -59,30 +59,44 @@ export const Header = () => {
           </a>
         </div>
       </div>
-      <menu className={styles.menu}>
-        {menuItems.map((item, idx) => (
-          <a
-            onClick={(ev) => {
-              ev.preventDefault()
-              window.scrollTo({
-                left: 0,
-                top: document.querySelector(item.href).offsetTop,
-                behavior: 'smooth',
-              })
-            }}
-            data-delay={idx * 0.15}
-            href={item.href}
-            className={clsx(styles.menuItem, 'reveal word')}
-          >
-            {item.name}
-          </a>
-        ))}
-      </menu>
+      {pathname === '/' && (
+        <menu className={styles.menu}>
+          {menuItems.map((item, idx) => (
+            <a
+              onClick={(ev) => {
+                ev.preventDefault()
+                window.scrollTo({
+                  left: 0,
+                  top: document.querySelector(item.href).offsetTop,
+                  behavior: 'smooth',
+                })
+              }}
+              data-delay={idx * 0.15}
+              href={item.href}
+              className={clsx(styles.menuItem, 'reveal word')}
+            >
+              {item.name}
+            </a>
+          ))}
+        </menu>
+      )}
       {window.innerWidth >= 561 ? (
-        <>{pathname === '/' ? <JoinButton /> : <SpeakButton type='primarySex' />}</>
+        <>
+          {pathname === '/' ? (
+            <JoinButton />
+          ) : (
+            <SpeakButton type="primarySex" />
+          )}
+        </>
       ) : (
         <div className={styles.headerMobileGroup}>
-          <>{pathname === '/' ? <JoinButton /> : <SpeakButton type='primarySex' />}</>
+          <>
+            {pathname === '/' ? (
+              <JoinButton />
+            ) : (
+              <SpeakButton type="primarySex" />
+            )}
+          </>
           <div
             onClick={() =>
               menuActive ? setMenuActive(false) : setMenuActive(true)
