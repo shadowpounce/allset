@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import { Logo } from '../../../ui/Logo/Logo'
 import styles from './Header.module.scss'
 import { JoinButton } from '../../../components/JoinButton/JoinButton'
+import { SpeakButton } from '../../../components/SpeakButton/SpeakButton'
 import { Button } from '../../../ui/Button/Button'
 import { useContext } from 'react'
 import { MainContext } from '../../providers/MainContext'
@@ -78,12 +79,10 @@ export const Header = () => {
         ))}
       </menu>
       {window.innerWidth >= 561 ? (
-        <>
-          <JoinButton />
-        </>
+        <>{pathname === '/' ? <JoinButton /> : <SpeakButton />}</>
       ) : (
         <div className={styles.headerMobileGroup}>
-          <JoinButton />
+          <>{pathname === '/' ? <JoinButton /> : <SpeakButton />}</>
           <div
             onClick={() =>
               menuActive ? setMenuActive(false) : setMenuActive(true)

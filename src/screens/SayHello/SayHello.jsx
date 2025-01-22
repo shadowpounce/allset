@@ -1,20 +1,23 @@
 import { Player } from '@lottiefiles/react-lottie-player'
 import { createRef, useEffect, useState, useRef } from 'react'
+import { gsap } from 'gsap'
 import styles from './SayHello.module.scss'
 
 export const SayHello = () => {
-  const playerRef = useRef(null)
-
   const [lottie, setLottie] = useState(null)
   const [load, setLoad] = useState(false)
 
   useEffect(() => {
     if (load && lottie) {
-      ScrollTrigger.create({
-        trigger: lottie.wrapper,
-        start: 'top top+=50%',
-        onEnter: () => lottie.play(),
+      const ctx = gsap.context(() => {
+        ScrollTrigger.create({
+          trigger: lottie.wrapper,
+          start: 'top top+=50%',
+          onEnter: () => lottie.play(),
+        })
       })
+
+      return () => ctx.destroy()
     }
   }, [load, lottie])
 
