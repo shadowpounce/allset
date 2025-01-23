@@ -152,6 +152,7 @@
 
           h2 {
             color: $navy07;
+            font-weight: 500;
           }
         }
 
@@ -160,10 +161,10 @@
           background-color: $whitef7;
           border-radius: get-d(14px);
           display: flex;
-          align-items: end;
+          align-items: start;
           gap: get-d(4px);
           position: relative;
-
+          height: 7vw;
           max-width: get-d(220px);
 
           @media (max-width: 561px) {
@@ -172,6 +173,11 @@
             width: 100%;
             gap: get(0px);
             padding: get(8px) get(4px) get(5px) get(8px);
+            height: fit-content;
+          }
+
+          button {
+            margin-top: auto;
           }
 
           &::before {
@@ -186,6 +192,7 @@
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
+            rotate: -8deg;
 
             @media (max-width: 561px) {
               width: get(11.75px);
