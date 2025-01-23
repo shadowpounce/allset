@@ -81,15 +81,16 @@ export const Calculate = () => {
 
       // Add annual gift in December if before age 22
       if (month <= monthsUntil22 && month % 12 === 0) {
+
         balance += annualGift
-        totalContributions += annualGift
+        totalContributions += annualGift 
       }
 
       // Record data points at each year
       if (month % 12 === 0) {
         data.push({
           age: Math.floor(currentAge),
-          cumulativeContributions: Math.round(totalContributions),
+          cumulativeContributions: Math.round(totalContributions) * (month / 24),
           cumulativeReturns: Math.round(totalReturns),
           totalBalance: Math.round(balance),
         })
@@ -256,17 +257,17 @@ export const Calculate = () => {
                   <Tooltip content={<CustomTooltip />} />
                   <Legend />
                   <Bar
-                    radius={[2.5, 2.5, 0, 0]}
+                    radius={[3, 3, 0, 0]}
                     dataKey="cumulativeContributions"
                     stackId="a"
-                    fill="#d9dcfa"
+                    fill="#8884d8"
                     name="Total Contributions"
                   />
                   <Bar
-                    radius={[2.5, 2.5, 0, 0]}
+                    radius={[3, 3, 0, 0]}
                     dataKey="cumulativeReturns"
                     stackId="a"
-                    fill="#8884d8"
+                    fill="#d9dcfa"
                     name="Total Investment Returns"
                   />
                 </BarChart>
