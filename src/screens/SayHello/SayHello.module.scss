@@ -16,6 +16,8 @@
     align-items: center;
     justify-content: center;
     gap: get-d(67.5px);
+    position: relative;
+    z-index: 2;
 
     @media (max-width: 561px) {
       margin-bottom: get(60px);
