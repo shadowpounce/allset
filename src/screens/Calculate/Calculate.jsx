@@ -131,19 +131,19 @@ export const Calculate = () => {
       const totalValue = payload.reduce((sum, entry) => sum + entry.value, 0)
       return (
         <div className={styles.tooltip}>
-          {/* <p className="font-medium">Age {label}</p> */}
-          {/* {payload.map((entry, index) => (
+          <p className="font-medium">Age {label}</p>
+          {payload.map((entry, index) => (
             <p key={index} style={{ color: entry.color }}>
               {entry.name}: {formatCurrency(entry.value)}
             </p>
-          ))} */}
+          ))}
           <p className="font-medium mt-2 border-t pt-2">
-            {/* Total Balance: { */}
+            Total Balance: 
             {formatCurrency(totalValue)}
             <br />
-            <span style={{ opacity: 0.7, fontSize: '14px' }}>
-              in {label} years
-            </span>
+            {/* <span style={{ opacity: 0.7, fontSize: '14px' }}>
+              in {label} years 
+            </span> */}
           </p>
         </div>
       )
