@@ -3,8 +3,9 @@
 
   &Title {
     text-align: center;
-
+    font-weight: 500;
     margin: 0 auto;
+    line-height: 95%;
 
     @media (max-width: 561px) {
       font-size: get(24.5px);

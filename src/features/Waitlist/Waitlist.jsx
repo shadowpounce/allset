@@ -2,15 +2,15 @@ import styles from './Waitlist.module.scss'
 import { Modal } from '../../widgets/Modal/Modal'
 import { Input } from '../../ui/Input/Input'
 import { JoinButton } from '../../components/JoinButton/JoinButton'
-import { useContext } from 'react'
 import { MainContext } from '../../app/providers/MainContext'
 import clsx from 'clsx'
 import { Player } from '@lottiefiles/react-lottie-player'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Select } from '../../ui/Select/Select'
 import { statesData } from './data'
 
-const WAITLIST_ID = 23498
+const WAITLIST_ID = 24605
+const WAITLIST_ADVISORS_ID = 24606
 
 function validateEmail(email) {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
@@ -20,7 +20,7 @@ function validateEmail(email) {
 }
 
 export const Waitlist = () => {
-  const { waitlistModalActive, setWaitlistModalActive } =
+  const { waitlistModalActive, setWaitlistModalActive, page } =
     useContext(MainContext)
 
   const [lottie, setLottie] = useState(null)
@@ -31,6 +31,28 @@ export const Waitlist = () => {
     referral_link: document.URL,
     email: '',
   })
+
+  useEffect(() => {
+    if (page === '/for-advisors') {
+      setData({
+        waitlist_id: WAITLIST_ADVISORS_ID,
+        referral_link: document.URL,
+        email: '',
+      })
+    } else {
+      setData({
+        waitlist_id: WAITLIST_ID,
+        referral_link: document.URL,
+        email: '',
+      })
+    }
+  }, [page])
+
+  useEffect(() => {
+    console.log(data)
+    console.log(page)
+
+  },[data])
 
   const submitWaitlist = () => {
     if (!data.email) {
@@ -43,8 +65,6 @@ export const Waitlist = () => {
       return
     }
 
-    alert(1)
-
     fetch('https://api.getwaitlist.com/api/v1/signup', {
       method: 'POST',
       headers: {
@@ -55,6 +75,7 @@ export const Waitlist = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
+        alert('You have been added to the waitlist')
       })
       .catch((error) => {
         console.log(error)

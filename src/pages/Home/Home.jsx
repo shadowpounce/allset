@@ -9,8 +9,18 @@ import { PreFooter } from '../../screens/PreFooter/PreFooter'
 import { SayHello } from '../../screens/SayHello/SayHello'
 import { Solution } from '../../screens/Solution/Solution'
 import { Menu } from '../../widgets/Menu/Menu'
+import { MainContext } from '../../app/providers/MainContext'
+import { useLocation } from 'react-router-dom'
+import { useContext, useEffect } from 'react'
 
 export const Home = () => {
+  const { setPage } = useContext(MainContext)
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    setPage(pathname)
+  }, [])
+
   return (
     <>
       <Header />

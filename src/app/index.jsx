@@ -14,6 +14,7 @@ export const App = () => {
   const [howItWorksModalActive, setHowItWorksModalActive] = useState(false)
 
   const [menuActive, setMenuActive] = useState(false)
+  const [page, setPage] = useState('/')
 
   return (
     <MainContext.Provider
@@ -26,6 +27,8 @@ export const App = () => {
         setMenuActive,
         howItWorksModalActive,
         setHowItWorksModalActive,
+        page,
+        setPage,
       }}
     >
       <Waitlist />

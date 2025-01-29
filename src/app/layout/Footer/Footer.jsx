@@ -4,10 +4,11 @@ import { Logo } from '../../../ui/Logo/Logo'
 import { Button } from '../../../ui/Button/Button'
 import { SpeakButton } from '../../../components/SpeakButton/SpeakButton'
 import { menuItems } from '../Header/Header'
-import { useLocation } from 'react-router-dom'
+import { useContext } from 'react'
+import { MainContext } from '../../providers/MainContext'
 
 export const Footer = () => {
-  const { pathname } = useLocation()
+  const { page } = useContext(MainContext)
 
   return (
     <footer className={styles.footer}>
@@ -49,7 +50,7 @@ export const Footer = () => {
               <li
                 className="split-text"
                 onClick={(ev) => {
-                  if (pathname === '/') {
+                  if (page === '/') {
                     ev.preventDefault()
                     window.scrollTo({
                       left: 0,

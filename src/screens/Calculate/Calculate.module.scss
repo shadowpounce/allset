@@ -11,7 +11,7 @@
   .tooltip {
     background-color: $navy0a;
     border-radius: get-d(14px);
-    padding: get-d(12px) get-d(16px);
+    padding: get-d(12px) get-d(16px) get-d(8px);
     display: flex;
     flex-direction: column;
 
@@ -334,13 +334,13 @@
           gap: get(12px);
         }
 
-        button:first-child {
-          flex-direction: row-reverse;
-          flex: 1;
-          padding-inline: 0;
-        }
+        // button:first-child {
+        //   flex-direction: row-reverse;
+        //   flex: 1;
+        //   padding-inline: 0;
+        // }
 
-        button:nth-child(2) {
+        button:nth-child(1) {
           aspect-ratio: 1 / 1;
         }
       }

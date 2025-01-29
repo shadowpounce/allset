@@ -3,7 +3,7 @@ import styles from './Solution.module.scss'
 
 export const Solution = () => {
   return (
-    <div id="how-it-works" className={styles.solution}>
+    <div id="benefits" className={styles.solution}>
       <div className={clsx('container', styles.solutionContainer)}>
         <div className="section-group centered">
           <h2 className="split-text">The most flexible solution</h2>

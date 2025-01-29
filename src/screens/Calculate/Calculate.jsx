@@ -81,16 +81,15 @@ export const Calculate = () => {
 
       // Add annual gift in December if before age 22
       if (month <= monthsUntil22 && month % 12 === 0) {
-
         balance += annualGift
-        totalContributions += annualGift 
+        totalContributions += annualGift
       }
 
       // Record data points at each year
       if (month % 12 === 0) {
         data.push({
           age: Math.floor(currentAge),
-          cumulativeContributions: Math.round(totalContributions) * (month / 24),
+          cumulativeContributions: Math.round(totalContributions),
           cumulativeReturns: Math.round(totalReturns),
           totalBalance: Math.round(balance),
         })
@@ -119,14 +118,6 @@ export const Calculate = () => {
     }).format(value)
   }
 
-  // const handleInputChange = (field, value) => {
-  //   const numValue = parseFloat(value) || 0
-  //   setInputs((prev) => ({
-  //     ...prev,
-  //     [field]: numValue,
-  //   }))
-  // }
-
   const handleInputChange = (field, value) => {
     const numValue = parseNumber(value)
     setInputs((prev) => ({
@@ -140,14 +131,19 @@ export const Calculate = () => {
       const totalValue = payload.reduce((sum, entry) => sum + entry.value, 0)
       return (
         <div className={styles.tooltip}>
-          <p className="font-medium">Age {label}</p>
-          {payload.map((entry, index) => (
+          {/* <p className="font-medium">Age {label}</p> */}
+          {/* {payload.map((entry, index) => (
             <p key={index} style={{ color: entry.color }}>
               {entry.name}: {formatCurrency(entry.value)}
             </p>
-          ))}
+          ))} */}
           <p className="font-medium mt-2 border-t pt-2">
-            Total Balance: {formatCurrency(totalValue)}
+            {/* Total Balance: { */}
+            {formatCurrency(totalValue)}
+            <br />
+            <span style={{ opacity: 0.7, fontSize: '14px' }}>
+              in {label} years
+            </span>
           </p>
         </div>
       )
@@ -222,7 +218,7 @@ export const Calculate = () => {
               </div>
             </div>
             <div className={clsx(styles.buttons, 'reveal scale')}>
-              <Button icon="assets/icons/math.svg">Calculate</Button>
+              {/* <Button icon="assets/icons/math.svg">Calculate</Button> */}
               <Button
                 onClick={() => setHowItWorksModalActive(true)}
                 type="circle"
@@ -248,7 +244,7 @@ export const Calculate = () => {
             >
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
-                  data={results.data.filter((_, index) => index % 2 === 0)}
+                  data={results.data.filter((_, index) => index % 3 === 0)}
                   margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
@@ -310,10 +306,10 @@ export const Calculate = () => {
                     Join waitlist today and set up a trust fund in minutes
                   </p>
                 </div>
-                <Button
+                {/* <Button
                   type="circlePurple"
                   icon="assets/icons/add-white.svg"
-                ></Button>
+                ></Button> */}
               </div>
             </div>
           </div>

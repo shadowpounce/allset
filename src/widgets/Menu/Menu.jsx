@@ -3,14 +3,10 @@ import styles from './Menu.module.scss'
 import { MainContext } from '../../app/providers/MainContext'
 import clsx from 'clsx'
 import { menuItems } from '../../app/layout/Header/Header'
-import { useLocation } from 'react-router-dom'
 
 export const Menu = () => {
-  const { menuActive, setMenuActive } = useContext(MainContext)
+  const { menuActive, setMenuActive, page } = useContext(MainContext)
   const menuRef = useRef(null)
-  const { pathname } = useLocation()
-
-  console.log(pathname)
 
   useEffect(() => {
     if (menuRef.current) {
@@ -46,18 +42,12 @@ export const Menu = () => {
         ))}
       </ul>
       <div className={clsx('switch', 'reveal fromRight')}>
-        <a
-          href="/"
-          className={clsx('switch-item', pathname === '/' && 'active')}
-        >
+        <a href="/" className={clsx('switch-item', page === '/' && 'active')}>
           For Parents
         </a>
         <a
           href="/for-advisors"
-          className={clsx(
-            'switch-item',
-            pathname == '/for-advisors' && 'active'
-          )}
+          className={clsx('switch-item', page == '/for-advisors' && 'active')}
         >
           For Advisors
         </a>
