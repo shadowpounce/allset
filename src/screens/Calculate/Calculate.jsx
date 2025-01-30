@@ -32,9 +32,7 @@ export const Calculate = () => {
     totalReturns: 0,
   })
 
-  useEffect(() => {
-    console.log(formatCurrency(results.finalBalance))
-  }, [results])
+  
 
   const formatWithCommas = (value) => {
     return new Intl.NumberFormat('en-US', {
@@ -54,7 +52,11 @@ export const Calculate = () => {
   const calculateTrajectory = (inputs) => {
     const { initialContribution, monthlySavings, annualGift, childAge } = inputs
     const annualRate = 0.08
-    const monthlyRate = annualRate / 12
+    const calculateMonthlyRate = (annualRate) => {
+      return Math.pow(1 + annualRate, 1 / 12) - 1;
+    };
+    
+    const monthlyRate = calculateMonthlyRate(annualRate);
 
     let balance = initialContribution
     let totalContributions = initialContribution

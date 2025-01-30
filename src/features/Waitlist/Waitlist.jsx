@@ -32,6 +32,8 @@ export const Waitlist = () => {
     waitlist_id: WAITLIST_ID,
     referral_link: document.URL,
     email: '',
+    first_name: '',
+    last_name: '',
   })
 
   useEffect(() => {
@@ -40,12 +42,16 @@ export const Waitlist = () => {
         waitlist_id: WAITLIST_ADVISORS_ID,
         referral_link: document.URL,
         email: '',
+        first_name: '',
+        last_name: '',
       })
     } else {
       setData({
         waitlist_id: WAITLIST_ID,
         referral_link: document.URL,
         email: '',
+        first_name: '',
+        last_name: '',
       })
     }
   }, [page])
@@ -132,8 +138,26 @@ export const Waitlist = () => {
             </p>
           </div>
           <div className="inputs">
-            <Input type="text" placeholder="First name" />
-            <Input type="text" placeholder="Last name" />
+            <Input
+              onChange={(ev) =>
+                setData({
+                  ...data,
+                  first_name: ev.target.value,
+                })
+              }
+              type="text"
+              placeholder="First name"
+            />
+            <Input
+              onChange={(ev) =>
+                setData({
+                  ...data,
+                  last_name: ev.target.value,
+                })
+              }
+              type="text"
+              placeholder="Last name"
+            />
             <Input
               type="email"
               onChange={(ev) =>
