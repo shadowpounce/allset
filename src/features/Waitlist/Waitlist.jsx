@@ -26,6 +26,8 @@ export const Waitlist = () => {
   const [lottie, setLottie] = useState(null)
   const [load, setLoad] = useState(false)
 
+  const [states, setStates] = useState('')
+
   const [data, setData] = useState({
     waitlist_id: WAITLIST_ID,
     referral_link: document.URL,
@@ -51,8 +53,7 @@ export const Waitlist = () => {
   useEffect(() => {
     console.log(data)
     console.log(page)
-
-  },[data])
+  }, [data])
 
   const submitWaitlist = () => {
     if (!data.email) {
@@ -143,7 +144,12 @@ export const Waitlist = () => {
               }
               placeholder="Email"
             />
-            <Select initValue="State of residence" data={statesData} />
+            <Select
+              value={states}
+              setValue={setStates}
+              initValue="State of residence"
+              data={statesData}
+            />
           </div>
           <div className="bottom">
             <JoinButton type="submit" animated={false} />

@@ -9,6 +9,7 @@ export const Input = ({
   value,
   onChange,
   addictionSymbol,
+  setValue,
 }) => {
   return (
     <div

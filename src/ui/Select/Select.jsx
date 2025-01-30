@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import styles from './Select.module.scss'
 import clsx from 'clsx'
 
-export const Select = ({ data, initValue }) => {
+export const Select = ({ data, initValue, value, setValue }) => {
   const [active, setActive] = useState(false)
   const [activeItem, setActiveItem] = useState(data[0])
-  const [value, setValue] = useState(initValue)
+
+  // useEffect(() => {
+  //   if (initValue) {
+  //     setValue(initValue)
+  //   }
+  // }, [initValue])
 
   return (
     <div className={clsx(styles.select, active && styles.active)}>
@@ -16,7 +21,7 @@ export const Select = ({ data, initValue }) => {
         }}
         className={styles.head}
       >
-        <input type="text" placeholder={value} />
+        <input type="text" placeholder={!value ? initValue : value} />
         <div className={styles.arrow}>
           <svg
             width="16"
