@@ -27,6 +27,7 @@ export const Waitlist = () => {
   const [load, setLoad] = useState(false)
 
   const [states, setStates] = useState('')
+  const [fullname, setFullname] = useState(['', ''])
 
   const [data, setData] = useState({
     waitlist_id: WAITLIST_ID,
@@ -57,9 +58,8 @@ export const Waitlist = () => {
   }, [page])
 
   useEffect(() => {
-    console.log(data)
-    console.log(page)
-  }, [data])
+    setData({ ...data, last_name: states })
+  }, [states])
 
   const submitWaitlist = () => {
     if (!data.email) {
@@ -77,7 +77,13 @@ export const Waitlist = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        waitlist_id: page === '/for-advisors' ? WAITLIST_ADVISORS_ID : WAITLIST_ID,
+        referral_link: document.URL,
+        email: data.email,
+        first_name: `${fullname[0]} ${fullname[1]}`,
+        last_name: states,
+      }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -139,22 +145,12 @@ export const Waitlist = () => {
           </div>
           <div className="inputs">
             <Input
-              onChange={(ev) =>
-                setData({
-                  ...data,
-                  first_name: ev.target.value,
-                })
-              }
+              onChange={(ev) => setFullname([ev.target.value, fullname[1]])}
               type="text"
               placeholder="First name"
             />
             <Input
-              onChange={(ev) =>
-                setData({
-                  ...data,
-                  last_name: ev.target.value,
-                })
-              }
+              onChange={(ev) => setFullname([fullname[0], ev.target.value])}
               type="text"
               placeholder="Last name"
             />
