@@ -66,7 +66,7 @@ app.post('/api/send-email', async (req, res) => {
     await transporter.sendMail({
       from: `"${first_name} ${last_name}" <${email}>`,
       to: process.env.EMAIL_TO,
-      subject: `dotDNA Contact Form`,
+      subject: `Allset Contact Form`,
       text: `**Name:** ${first_name} ${last_name}\n**Email:** ${email}\n**Phone:** ${phone}\n**Firm name:** ${firm_name}\n**Aum:** ${firm_site}\n**Aum:** ${aum}\n**State:** ${state}\n**Message:** ${message}`,
       html: markdownContent,
     })
@@ -79,5 +79,5 @@ app.post('/api/send-email', async (req, res) => {
 
 // Запуск сервера
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`)
+  console.log(`Server is running on ${PORT} port`)
 })
