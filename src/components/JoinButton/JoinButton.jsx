@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Button } from '../../ui/Button/Button'
 import { MainContext } from '../../app/providers/MainContext'
 
-export const JoinButton = ({ animated = true, type }) => {
+export const JoinButton = ({ animated = true, type, title }) => {
   const { setWaitlistModalActive } = useContext(MainContext)
 
   return (
@@ -15,8 +15,9 @@ export const JoinButton = ({ animated = true, type }) => {
       type="primary"
       icon="assets/icons/add.svg"
       iconBg={true}
+      title={title && title}
     >
-      Join waitlist
+      {title ? title : 'Join Waitlist'}
     </Button>
   )
 }

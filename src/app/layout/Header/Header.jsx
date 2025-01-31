@@ -85,7 +85,7 @@ export const Header = () => {
           {pathname === '/' ? (
             <JoinButton />
           ) : (
-            <JoinButton type="primarySex" />
+            <JoinButton title="Speak with us" type="primarySex" />
           )}
         </>
       ) : (
@@ -94,7 +94,7 @@ export const Header = () => {
             {pathname === '/' ? (
               <JoinButton />
             ) : (
-              <JoinButton type="primarySex" />
+              <JoinButton title="Speak with us" type="primarySex" />
             )}
           </>
           <div
