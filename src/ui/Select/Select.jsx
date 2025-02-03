@@ -14,11 +14,11 @@ export const Select = ({ data, initValue, value, setValue }) => {
   // }, [initValue])
 
   return (
-    <div className={clsx(styles.select, active && styles.active)}>
+    <div onClick={() => {
+      active ? setActive(false) : setActive(true)
+    }} className={clsx(styles.select, active && styles.active)}>
       <div
-        onClick={() => {
-          active ? setActive(false) : setActive(true)
-        }}
+        
         className={styles.head}
       >
         <input type="text" placeholder={!value ? initValue : value} />

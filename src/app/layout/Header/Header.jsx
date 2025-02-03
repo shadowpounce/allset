@@ -85,18 +85,13 @@ export const Header = () => {
           {pathname === '/' ? (
             <JoinButton />
           ) : (
-            <JoinButton title="Speak with us" type="primarySex" />
+            // <JoinButton title="Speak with us" type="primarySex" />
+            <SpeakButton type="primarySex" />
           )}
         </>
       ) : (
         <div className={styles.headerMobileGroup}>
-          <>
-            {pathname === '/' ? (
-              <JoinButton />
-            ) : (
-              <JoinButton title="Speak with us" type="primarySex" />
-            )}
-          </>
+          <>{pathname === '/' ? <JoinButton /> : <SpeakButton />}</>
           <div
             onClick={() =>
               menuActive ? setMenuActive(false) : setMenuActive(true)
